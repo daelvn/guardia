@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Guàrdia Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>guardia</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>guards</strong></li>
+  <li><a href="../modules/guardia.html">guardia</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/README.md.html">README</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>guards</code></h1>
+<p>Set of guards that come with guardia.</p>
+<p> Batteries included!</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Author</strong>: daelvn</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#getsType">getsType (ty, t)</a></td>
+	<td class="summary">Type-checking errguards.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#expectsType">expectsType (ty, t)</a></td>
+	<td class="summary">Type-checking enderrguards.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#exceptType">exceptType (ty, t)</a></td>
+	<td class="summary">Type-checking antierrguards.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getsStringForced">getsStringForced ()</a></td>
+	<td class="summary">Forcefully getting a string (using <a href="https://www.lua.org/manual/5.3/manual.html#pdf-tostring">tostring</a>).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getsOdd">getsOdd ()</a></td>
+	<td class="summary">Checks whether a number passed is odd.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getsEven">getsEven ()</a></td>
+	<td class="summary">Checks whether a number passed is even.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "getsType"></a>
+    <strong>getsType (ty, t)</strong>
+    </dt>
+    <dd>
+    Type-checking errguards.
+ <code>guardia.guards</code> automatically creates functions such as <code>getsNumber</code> or <code>getsNil</code> for all Lua base types.
+ It also supports the <code>__type</code> metafield for custom types.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ty</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Type to check for.
+        </li>
+        <li><span class="parameter">t</span>
+            <span class="types"><span class="type">function</span> or <span class="type">nil</span></span>
+         Type function to use.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that takes another to guard.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "expectsType"></a>
+    <strong>expectsType (ty, t)</strong>
+    </dt>
+    <dd>
+    Type-checking enderrguards.
+ <code>guardia.guards</code> automatically creates functions such as <code>expectsNumber</code> or <code>expectsNil</code> for all Lua base types.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ty</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Type to check for.
+        </li>
+        <li><span class="parameter">t</span>
+            <span class="types"><span class="type">function</span> or <span class="type">nil</span></span>
+         Type function to use.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that takes another to guard.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "exceptType"></a>
+    <strong>exceptType (ty, t)</strong>
+    </dt>
+    <dd>
+    Type-checking antierrguards.
+ <code>guardia.guards</code> automatically creates functions such as <code>exceptNumber</code> or <code>exceptNil</code> for all Lua base types.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ty</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Type to check for.
+        </li>
+        <li><span class="parameter">t</span>
+            <span class="types"><span class="type">function</span> or <span class="type">nil</span></span>
+         Type function to use.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that takes another to guard.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getsStringForced"></a>
+    <strong>getsStringForced ()</strong>
+    </dt>
+    <dd>
+    Forcefully getting a string (using <a href="https://www.lua.org/manual/5.3/manual.html#pdf-tostring">tostring</a>).  [Guard].
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that expects another to guard.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getsOdd"></a>
+    <strong>getsOdd ()</strong>
+    </dt>
+    <dd>
+    Checks whether a number passed is odd.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that expects another to guard.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getsEven"></a>
+    <strong>getsEven ()</strong>
+    </dt>
+    <dd>
+    Checks whether a number passed is even.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that expects another to guard.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2019-09-27 07:24:23 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
