@@ -38,9 +38,9 @@
 
 <h2>Modules</h2>
 <ul class="nowrap">
-  <li><strong>guardia.guards</strong></li>
+  <li><a href="../modules/guardia.guards.html">guardia.guards</a></li>
   <li><a href="../modules/guardia.init.html">guardia.init</a></li>
-  <li><a href="../modules/guardia.v2.guards.html">guardia.v2.guards</a></li>
+  <li><strong>guardia.v2.guards</strong></li>
   <li><a href="../modules/guardia.v2.init.html">guardia.v2.init</a></li>
 </ul>
 <h2>Topics</h2>
@@ -61,9 +61,11 @@
 
 <div id="content">
 
-<h1>Module <code>guardia.guards</code></h1>
-<p>Set of guards that come with guardia.</p>
-<p> Batteries included!</p>
+<h1>Module <code>guardia.v2.guards</code></h1>
+<p>Set of guards that come with Guàrdia.</p>
+<p> Batteries included!
+ Importing <code>_&lt;type&gt;</code> from this module will return a type guard for <code>&lt;type&gt;</code>.
+ Importing <code>_not_&lt;type&gt;</code> from this module will return a negated type guard for <code>&lt;type&gt;</code>.</p>
     <h3>Info:</h3>
     <ul>
         <li><strong>Author</strong>: daelvn</li>
@@ -73,28 +75,29 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#getsType">getsType (ty, t)</a></td>
-	<td class="summary">Type-checking errguards.</td>
+	<td class="name" nowrap><a href="#_utype">_utype (ty, t)</a></td>
+	<td class="summary">Underlying type checker for <a href="../modules/guardia.v2.guards.html#_type">_type</a>
+ It also supports the <code>__type</code> metafield for custom types.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#expectsType">expectsType (ty, t)</a></td>
-	<td class="summary">Type-checking enderrguards.</td>
+	<td class="name" nowrap><a href="#_type">_type (ty, t)</a></td>
+	<td class="summary">Type-checking guard.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#exceptType">exceptType (ty, t)</a></td>
-	<td class="summary">Type-checking antierrguards.</td>
+	<td class="name" nowrap><a href="#_utable">_utable (ty, t)</a></td>
+	<td class="summary">Underlying table checker for <a href="../modules/guardia.v2.guards.html#_tableof">_tableof</a>.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#getsStringForced">getsStringForced ()</a></td>
-	<td class="summary">Forcefully getting a string (using <a href="https://www.lua.org/manual/5.3/manual.html#pdf-tostring">tostring</a>).</td>
+	<td class="name" nowrap><a href="#_tableof">_tableof (ty, t)</a></td>
+	<td class="summary">Guard that checks that all elements of a table are of the same type.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#getsOdd">getsOdd ()</a></td>
-	<td class="summary">Checks whether a number passed is odd.</td>
+	<td class="name" nowrap><a href="#_tostring">_tostring ()</a></td>
+	<td class="summary"><a href="https://www.lua.org/manual/5.3/manual.html#pdf-tostring">tostring</a> transformer.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#getsEven">getsEven ()</a></td>
-	<td class="summary">Checks whether a number passed is even.</td>
+	<td class="name" nowrap><a href="#_tonumber">_tonumber ()</a></td>
+	<td class="summary"><a href="https://www.lua.org/manual/5.3/manual.html#pdf-tonumber">tonumber</a> transformer.</td>
 	</tr>
 </table>
 
@@ -106,13 +109,77 @@
 
     <dl class="function">
     <dt>
-    <a name = "getsType"></a>
-    <strong>getsType (ty, t)</strong>
+    <a name = "_utype"></a>
+    <strong>_utype (ty, t)</strong>
     </dt>
     <dd>
-    Type-checking errguards.
- <a href="../modules/guardia.guards.html#">guardia.guards</a> automatically creates functions such as <code>getsNumber</code> or <code>getsNil</code> for all Lua base types.
+    Underlying type checker for <a href="../modules/guardia.v2.guards.html#_type">_type</a>
  It also supports the <code>__type</code> metafield for custom types.
+ It has to be manually finalized with <code>_fn</code> or <code>_ps</code>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ty</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Type to check for
+        </li>
+        <li><span class="parameter">t</span>
+            <span class="types"><span class="type">function</span> or <span class="type">nil</span></span>
+         Type function to use, defaults to <a href="https://www.lua.org/manual/5.3/manual.html#pdf-type">type</a>.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Whether it matches the type or not.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_type"></a>
+    <strong>_type (ty, t)</strong>
+    </dt>
+    <dd>
+    Type-checking guard.
+ It also supports the <code>__type</code> metafield for custom types.
+ It has to be manually finalized with <code>_fn</code> or <code>_ps</code>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ty</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Type to check for
+        </li>
+        <li><span class="parameter">t</span>
+            <span class="types"><span class="type">function</span> or <span class="type">nil</span></span>
+         Type function to use, defaults to <a href="https://www.lua.org/manual/5.3/manual.html#pdf-type">type</a>.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Guard.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_utable"></a>
+    <strong>_utable (ty, t)</strong>
+    </dt>
+    <dd>
+    Underlying table checker for <a href="../modules/guardia.v2.guards.html#_tableof">_tableof</a>.
 
 
     <h3>Parameters:</h3>
@@ -123,15 +190,15 @@
         </li>
         <li><span class="parameter">t</span>
             <span class="types"><span class="type">function</span> or <span class="type">nil</span></span>
-         Type function to use.
+         Type function to use, defaults to <a href="https://www.lua.org/manual/5.3/manual.html#pdf-type">type</a>.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">function</span></span>
-        Function that takes another to guard.
+           <span class="types"><span class="type">boolean</span></span>
+        Whether it is a table containing only that type or not.
     </ol>
 
 
@@ -139,124 +206,55 @@
 
 </dd>
     <dt>
-    <a name = "expectsType"></a>
-    <strong>expectsType (ty, t)</strong>
+    <a name = "_tableof"></a>
+    <strong>_tableof (ty, t)</strong>
     </dt>
     <dd>
-    Type-checking enderrguards.
- <a href="../modules/guardia.guards.html#">guardia.guards</a> automatically creates functions such as <code>expectsNumber</code> or <code>expectsNil</code> for all Lua base types.
+    Guard that checks that all elements of a table are of the same type.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ty</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
-         Type to check for.
+
+
+
         </li>
         <li><span class="parameter">t</span>
-            <span class="types"><span class="type">function</span> or <span class="type">nil</span></span>
-         Type function to use.
+
+
+
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">function</span></span>
-        Function that takes another to guard.
-    </ol>
 
 
 
 
 </dd>
     <dt>
-    <a name = "exceptType"></a>
-    <strong>exceptType (ty, t)</strong>
+    <a name = "_tostring"></a>
+    <strong>_tostring ()</strong>
     </dt>
     <dd>
-    Type-checking antierrguards.
- <a href="../modules/guardia.guards.html#">guardia.guards</a> automatically creates functions such as <code>exceptNumber</code> or <code>exceptNil</code> for all Lua base types.
+    <a href="https://www.lua.org/manual/5.3/manual.html#pdf-tostring">tostring</a> transformer.
 
 
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">ty</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
-         Type to check for.
-        </li>
-        <li><span class="parameter">t</span>
-            <span class="types"><span class="type">function</span> or <span class="type">nil</span></span>
-         Type function to use.
-        </li>
-    </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">function</span></span>
-        Function that takes another to guard.
-    </ol>
 
 
 
 
 </dd>
     <dt>
-    <a name = "getsStringForced"></a>
-    <strong>getsStringForced ()</strong>
+    <a name = "_tonumber"></a>
+    <strong>_tonumber ()</strong>
     </dt>
     <dd>
-    Forcefully getting a string (using <a href="https://www.lua.org/manual/5.3/manual.html#pdf-tostring">tostring</a>).  [Guard].
+    <a href="https://www.lua.org/manual/5.3/manual.html#pdf-tonumber">tonumber</a> transformer.
 
 
 
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">function</span></span>
-        Function that expects another to guard.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "getsOdd"></a>
-    <strong>getsOdd ()</strong>
-    </dt>
-    <dd>
-    Checks whether a number passed is odd.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">function</span></span>
-        Function that expects another to guard.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "getsEven"></a>
-    <strong>getsEven ()</strong>
-    </dt>
-    <dd>
-    Checks whether a number passed is even.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">function</span></span>
-        Function that expects another to guard.
-    </ol>
 
 
 

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Guàrdia Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>guardia</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/antierrguard.moon.html">antierrguard.moon</a></li>
+  <li><a href="../examples/biguard.moon.html">biguard.moon</a></li>
+  <li><a href="../examples/endguard.moon.html">endguard.moon</a></li>
+  <li><a href="../examples/guard.moon.html">guard.moon</a></li>
+  <li><strong>v2_tests.moon</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/guardia.guards.html">guardia.guards</a></li>
+  <li><a href="../modules/guardia.init.html">guardia.init</a></li>
+  <li><a href="../modules/guardia.v2.guards.html">guardia.v2.guards</a></li>
+  <li><a href="../modules/guardia.v2.init.html">guardia.v2.init</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/README.md.html">README</a></li>
+  <li><a href="../topics/README-V1.md.html">README-V1</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>v2_tests.moon</h2>
+<pre>
+import _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _t, _f from <span class="global">require</span> <span class="string">"guardia.v2"</span>
+
+describe <span class="string">"guàrdia v2"</span>, -&gt;
+  _str   = _fl (x) -&gt; <span class="string">"string"</span> == <span class="global">type</span> x
+  _tostr = _tr <span class="global">tostring</span>
+  it <span class="string">"starts a chain #_filter"</span>, -&gt;
+    st, ar = _str <span class="string">"a"</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">true</span>, st
+    <span class="global">assert</span>.are.equal ar,   <span class="string">"a"</span>
+    st, ar = _str <span class="number">3</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">false</span>, st
+    <span class="global">assert</span>.are.equal ar,    <span class="number">3</span>
+
+  it <span class="string">"transforms a chain #_transform"</span>, -&gt;
+    st, ar = _tostr _ng _str b: <span class="number">5</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">true</span>, st
+    <span class="global">assert</span>.is.truthy ar\match <span class="string">"table"</span>
+
+  it <span class="string">"gets the status of a chain #_status"</span>, -&gt;
+    st = _st _tostr _ng _str b: <span class="number">5</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">true</span>, st
+
+  it <span class="string">"gets the final value of a chain #_pass #_finalize"</span>, -&gt;
+    ar = _fn _tostr _ng _str b: <span class="number">5</span>
+    <span class="global">assert</span>.is.truthy ar\match <span class="string">"table"</span>
+
+  it <span class="string">"throws an error during a chain #error #_e1"</span>, -&gt;
+    <span class="global">assert</span>.has.<span class="global">error</span> -&gt; _e1 _ng _str b: <span class="number">5</span>
+
+  it <span class="string">"starts a true chain #_true"</span>, -&gt;
+    <span class="global">assert</span>.are.equal <span class="keyword">true</span>, _st _t b: <span class="number">5</span>
+
+  it <span class="string">"starts a false chain #_false"</span>, -&gt;
+    <span class="global">assert</span>.are.equal <span class="keyword">false</span>, _st _f b: <span class="number">5</span>
+
+describe <span class="string">"guàrdia v2 guard"</span>, -&gt;
+  import _utype, _string, _not_number, _number, _tostring, _tonumber, _Whatever from <span class="global">require</span> <span class="string">"guardia.v2.guards"</span>
+  make_Whatever = (t) -&gt; <span class="global">setmetatable</span> t, __type: <span class="string">"Whatever"</span>
+
+  it <span class="string">"gets a type #_utype"</span>, -&gt;
+    getstring = _utype <span class="string">"string"</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">true</span>,  getstring <span class="string">"a"</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">false</span>, getstring <span class="number">5</span>
+
+  it <span class="string">"checks basic types #_type"</span>, -&gt;
+    <span class="global">assert</span>.has.<span class="global">error</span> -&gt;     _e1 _string <span class="number">5</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">false</span>, _st _string <span class="string">"a"</span>
+    <span class="global">assert</span>.has.<span class="global">error</span> -&gt;     _e1 _not_number <span class="number">5</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">false</span>, _st _not_number <span class="string">"a"</span>
+
+  it <span class="string">"transforms chains #_tostring #_tonumber"</span>, -&gt;
+    ar = _fn _tostring _t b: <span class="number">5</span>
+    <span class="global">assert</span>.truthy ar\match <span class="string">"table"</span>
+    ar = _fn _tonumber _t <span class="string">"5"</span>
+    <span class="global">assert</span>.are.equal <span class="number">5</span>, ar
+
+  it <span class="string">"checks custom types #_custom"</span>, -&gt;
+    wh = make_Whatever b: <span class="number">5</span>
+    <span class="global">assert</span>.has.<span class="global">error</span> -&gt;     _e1 _Whatever <span class="number">5</span>
+    <span class="global">assert</span>.are.equal <span class="keyword">false</span>, _st _Whatever wh
+
+describe <span class="string">"guàrdia v2 sign"</span>, -&gt;
+  import sign from <span class="global">require</span> <span class="string">"guardia.v2.sign"</span>
+
+  it <span class="string">"signs a function #sign"</span>, -&gt;
+    sign <span class="string">"(a -&gt; b) -&gt; [a] -&gt; [b]"</span></pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2019-09-30 06:56:25 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

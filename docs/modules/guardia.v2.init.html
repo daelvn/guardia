@@ -39,9 +39,9 @@
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/guardia.guards.html">guardia.guards</a></li>
-  <li><strong>guardia.init</strong></li>
+  <li><a href="../modules/guardia.init.html">guardia.init</a></li>
   <li><a href="../modules/guardia.v2.guards.html">guardia.v2.guards</a></li>
-  <li><a href="../modules/guardia.v2.init.html">guardia.v2.init</a></li>
+  <li><strong>guardia.v2.init</strong></li>
 </ul>
 <h2>Topics</h2>
 <ul class="">
@@ -61,7 +61,7 @@
 
 <div id="content">
 
-<h1>Module <code>guardia.init</code></h1>
+<h1>Module <code>guardia.v2.init</code></h1>
 <p>Guards for Lua.</p>
 <p> Based upon <a href="https://github.com/Yonaba/guard.lua">guard.lua</a>.
  This version is rather thought for curried functions and use with MoonScript.</p>
@@ -73,6 +73,54 @@
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#_filter">_filter (fl)</a></td>
+	<td class="summary">Filtering function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_true">_true (...)</a></td>
+	<td class="summary">Starts a chain, forcing transformation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_false">_false (...)</a></td>
+	<td class="summary">Starts a chain, not forcing transformation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_transform">_transform (tr)</a></td>
+	<td class="summary">Transforming function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_negate">_negate (b, ...)</a></td>
+	<td class="summary">Negating function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_pass">_pass (b, ...)</a></td>
+	<td class="summary">Filtering function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_error">_error (msg, b, ...)</a></td>
+	<td class="summary">Filtering function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_status">_status (b, ...)</a></td>
+	<td class="summary">Filtering function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_inspect">_inspect (b, ...)</a></td>
+	<td class="summary">Inspects the values being passed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_named">_named (msg, b, ...)</a></td>
+	<td class="summary">Complex inspect.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_finalize">_finalize ()</a></td>
+	<td class="summary">Alias to <a href="../modules/guardia.v2.init.html#_pass">_pass</a></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_e1">_e1 (b, ...)</a></td>
+	<td class="summary"><a href="../modules/guardia.v2.init.html#_error">_error</a> with a default error message.</td>
+	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Guard">Guard (filter, transform, f, ...)</a></td>
 	<td class="summary">guard.lua-style Guard.</td>
@@ -94,16 +142,12 @@
 	<td class="summary">Guard that errors when it does not pass.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Antierrguard">Antierrguard (filter, transform, f, ...)</a></td>
-	<td class="summary">Guard that errors when passed.</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#Enderrguard">Enderrguard (filter, transform, f, ...)</a></td>
 	<td class="summary">Guards the result of a function.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#compose">compose (...)</a></td>
-	<td class="summary">Simple function composition.</td>
+	<td class="name" nowrap><a href="#Antierrguard">Antierrguard (filter, transform, f, ...)</a></td>
+	<td class="summary">Guard that errors when passed.</td>
 	</tr>
 </table>
 
@@ -114,6 +158,343 @@
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
+    <dt>
+    <a name = "_filter"></a>
+    <strong>_filter (fl)</strong>
+    </dt>
+    <dd>
+    Filtering function.  <strong>Curried function.</strong> *Alias <code>_fl</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fl</span>
+            <span class="types"><span class="type">function</span></span>
+         Filter.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that returns whether the filter matched or not, and the arguments passed to it.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_true"></a>
+    <strong>_true (...)</strong>
+    </dt>
+    <dd>
+    Starts a chain, forcing transformation.  <strong>Curried function.</strong> *Alias <code>_t</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that starts a chain.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_false"></a>
+    <strong>_false (...)</strong>
+    </dt>
+    <dd>
+    Starts a chain, not forcing transformation.  <strong>Curried function.</strong> *Alias <code>_f</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that starts a chain.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_transform"></a>
+    <strong>_transform (tr)</strong>
+    </dt>
+    <dd>
+    Transforming function.  <strong>Curried function.</strong> *Alias <code>_tr</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tr</span>
+            <span class="types"><span class="type">function</span></span>
+         Transformer.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        Function that returns whether the arguments were transformed or not, and the arguments passed to it.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_negate"></a>
+    <strong>_negate (b, ...)</strong>
+    </dt>
+    <dd>
+    Negating function.  *Alias <code>_ng</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Status from last operation.
+        </li>
+        <li><span class="parameter">...</span>
+         Arguments in the stream.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        Opposite status.</li>
+        <li>
+        ... Same arguments in the stream.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_pass"></a>
+    <strong>_pass (b, ...)</strong>
+    </dt>
+    <dd>
+    Filtering function.  *Alias <code>_ps</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Status from last operation.
+        </li>
+        <li><span class="parameter">...</span>
+         Arguments in the stream.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        ... Same arguments in the stream.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_error"></a>
+    <strong>_error (msg, b, ...)</strong>
+    </dt>
+    <dd>
+    Filtering function.  <strong>Curried function.</strong> *Alias <code>_er</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">msg</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Error message.
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Status from last operation.
+        </li>
+        <li><span class="parameter">...</span>
+         <strong>Passed along with last argument.</strong> Arguments in the stream.
+        </li>
+    </ul>
+
+
+    <h3>Raises:</h3>
+    Errors with <code>msg</code> is <code>b</code> is <code>true</code>.
+
+
+
+</dd>
+    <dt>
+    <a name = "_status"></a>
+    <strong>_status (b, ...)</strong>
+    </dt>
+    <dd>
+    Filtering function.  *Alias <code>_st</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Status from last operation.
+        </li>
+        <li><span class="parameter">...</span>
+         Arguments in the stream.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Status from last operation.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_inspect"></a>
+    <strong>_inspect (b, ...)</strong>
+    </dt>
+    <dd>
+    Inspects the values being passed.  *Alias <code>_in</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Status from last operation.
+        </li>
+        <li><span class="parameter">...</span>
+         Arguments in the stream.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        Status from last operation.</li>
+        <li>
+        ... Same arguments in the stream.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_named"></a>
+    <strong>_named (msg, b, ...)</strong>
+    </dt>
+    <dd>
+    Complex inspect.  Takes an extra message. <strong>Curried function.</strong> **Alias <code>_ci</code>.*
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">msg</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Error message.
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Status from last operation.
+        </li>
+        <li><span class="parameter">...</span>
+         <strong>Passed along with last argument.</strong> Arguments in the stream.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        Status from last operation.</li>
+        <li>
+        ... Same arguments in the stream.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_finalize"></a>
+    <strong>_finalize ()</strong>
+    </dt>
+    <dd>
+    Alias to <a href="../modules/guardia.v2.init.html#_pass">_pass</a>
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_e1"></a>
+    <strong>_e1 (b, ...)</strong>
+    </dt>
+    <dd>
+    <a href="../modules/guardia.v2.init.html#_error">_error</a> with a default error message.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Status from last operation.
+        </li>
+        <li><span class="parameter">...</span>
+         Arguments in the stream.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
     <dt>
     <a name = "Guard"></a>
     <strong>Guard (filter, transform, f, ...)</strong>
@@ -306,45 +687,6 @@
 
 </dd>
     <dt>
-    <a name = "Antierrguard"></a>
-    <strong>Antierrguard (filter, transform, f, ...)</strong>
-    </dt>
-    <dd>
-    Guard that errors when passed.  <strong>Curried function.</strong>
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">filter</span>
-            <span class="types"><span class="type">function</span></span>
-         Filters whether the guard is applicable or not.
-        </li>
-        <li><span class="parameter">transform</span>
-            <span class="types"><span class="type">function</span></span>
-         If the guard is applicable, apply it and return.
-        </li>
-        <li><span class="parameter">f</span>
-            <span class="types"><span class="type">function</span></span>
-         Function to be guarded.
-        </li>
-        <li><span class="parameter">...</span>
-         Arguments to pass to <code>f</code>
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        Whatever <code>f</code> returns.
-    </ol>
-
-    <h3>Raises:</h3>
-    If the filter does not pass, it will error.
-
-
-
-</dd>
-    <dt>
     <a name = "Enderrguard"></a>
     <strong>Enderrguard (filter, transform, f, ...)</strong>
     </dt>
@@ -384,27 +726,40 @@
 
 </dd>
     <dt>
-    <a name = "compose"></a>
-    <strong>compose (...)</strong>
+    <a name = "Antierrguard"></a>
+    <strong>Antierrguard (filter, transform, f, ...)</strong>
     </dt>
     <dd>
-    Simple function composition.
+    Guard that errors when passed.  <strong>Curried function.</strong>
 
 
     <h3>Parameters:</h3>
     <ul>
+        <li><span class="parameter">filter</span>
+            <span class="types"><span class="type">function</span></span>
+         Filters whether the guard is applicable or not.
+        </li>
+        <li><span class="parameter">transform</span>
+            <span class="types"><span class="type">function</span></span>
+         If the guard is applicable, apply it and return.
+        </li>
+        <li><span class="parameter">f</span>
+            <span class="types"><span class="type">function</span></span>
+         Function to be guarded.
+        </li>
         <li><span class="parameter">...</span>
-         All functions to compose
+         Arguments to pass to <code>f</code>
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">function</span></span>
-        Composed function.
+        Whatever <code>f</code> returns.
     </ol>
 
+    <h3>Raises:</h3>
+    If the filter does not pass, it will error.
 
 
 

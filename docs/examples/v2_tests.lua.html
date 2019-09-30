@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Guàrdia Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>guardia</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/antierrguard.lua.html">antierrguard.lua</a></li>
+  <li><a href="../examples/antierrguard.moon.html">antierrguard.moon</a></li>
+  <li><a href="../examples/biguard.lua.html">biguard.lua</a></li>
+  <li><a href="../examples/biguard.moon.html">biguard.moon</a></li>
+  <li><a href="../examples/endguard.lua.html">endguard.lua</a></li>
+  <li><a href="../examples/endguard.moon.html">endguard.moon</a></li>
+  <li><a href="../examples/guard.lua.html">guard.lua</a></li>
+  <li><a href="../examples/guard.moon.html">guard.moon</a></li>
+  <li><strong>v2_tests.lua</strong></li>
+  <li><a href="../examples/v2_tests.moon.html">v2_tests.moon</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/guardia.guards.html">guardia.guards</a></li>
+  <li><a href="../modules/guardia.init.html">guardia.init</a></li>
+  <li><a href="../modules/guardia.v2.guards.html">guardia.v2.guards</a></li>
+  <li><a href="../modules/guardia.v2.init.html">guardia.v2.init</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/README.md.html">README</a></li>
+  <li><a href="../topics/README.V1.md.html">README</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>v2_tests.lua</h2>
+<pre>
+<span class="keyword">local</span> _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _t, _f
+<span class="keyword">do</span>
+  <span class="keyword">local</span> _obj_0 = <span class="global">require</span>(<span class="string">"guardia.v2"</span>)
+  _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _t, _f = _obj_0._fl, _obj_0._tr, _obj_0._ng, _obj_0._ps, _obj_0._fn, _obj_0._er, _obj_0._st, _obj_0._e1, _obj_0._in, _obj_0._ci, _obj_0._t, _obj_0._f
+<span class="keyword">end</span>
+describe(<span class="string">"guàrdia v2"</span>, <span class="keyword">function</span>()
+  <span class="keyword">local</span> _str = _fl(<span class="keyword">function</span>(x)
+    <span class="keyword">return</span> <span class="string">"string"</span> == <span class="global">type</span>(x)
+  <span class="keyword">end</span>)
+  <span class="keyword">local</span> _tostr = _tr(<span class="global">tostring</span>)
+  it(<span class="string">"starts a chain #_filter"</span>, <span class="keyword">function</span>()
+    <span class="keyword">local</span> st, ar = _str(<span class="string">"a"</span>)
+    <span class="global">assert</span>.are.equal(<span class="keyword">true</span>, st)
+    <span class="global">assert</span>.are.equal(ar, <span class="string">"a"</span>)
+    st, ar = _str(<span class="number">3</span>)
+    <span class="global">assert</span>.are.equal(<span class="keyword">false</span>, st)
+    <span class="keyword">return</span> <span class="global">assert</span>.are.equal(ar, <span class="number">3</span>)
+  <span class="keyword">end</span>)
+  it(<span class="string">"transforms a chain #_transform"</span>, <span class="keyword">function</span>()
+    <span class="keyword">local</span> st, ar = _tostr(_ng(_str({
+      b = <span class="number">5</span>
+    })))
+    <span class="global">assert</span>.are.equal(<span class="keyword">true</span>, st)
+    <span class="keyword">return</span> <span class="global">assert</span>.is.truthy(ar:match(<span class="string">"table"</span>))
+  <span class="keyword">end</span>)
+  it(<span class="string">"gets the status of a chain #_status"</span>, <span class="keyword">function</span>()
+    <span class="keyword">local</span> st = _st(_tostr(_ng(_str({
+      b = <span class="number">5</span>
+    }))))
+    <span class="keyword">return</span> <span class="global">assert</span>.are.equal(<span class="keyword">true</span>, st)
+  <span class="keyword">end</span>)
+  it(<span class="string">"gets the final value of a chain #_pass #_finalize"</span>, <span class="keyword">function</span>()
+    <span class="keyword">local</span> ar = _fn(_tostr(_ng(_str({
+      b = <span class="number">5</span>
+    }))))
+    <span class="keyword">return</span> <span class="global">assert</span>.is.truthy(ar:match(<span class="string">"table"</span>))
+  <span class="keyword">end</span>)
+  it(<span class="string">"throws an error during a chain #error #_e1"</span>, <span class="keyword">function</span>()
+    <span class="keyword">return</span> <span class="global">assert</span>.has.<span class="global">error</span>(<span class="keyword">function</span>()
+      <span class="keyword">return</span> _e1(_ng(_str({
+        b = <span class="number">5</span>
+      })))
+    <span class="keyword">end</span>)
+  <span class="keyword">end</span>)
+  it(<span class="string">"starts a true chain #_true"</span>, <span class="keyword">function</span>()
+    <span class="keyword">return</span> <span class="global">assert</span>.are.equal(<span class="keyword">true</span>, _st(_t({
+      b = <span class="number">5</span>
+    })))
+  <span class="keyword">end</span>)
+  <span class="keyword">return</span> it(<span class="string">"starts a false chain #_false"</span>, <span class="keyword">function</span>()
+    <span class="keyword">return</span> <span class="global">assert</span>.are.equal(<span class="keyword">false</span>, _st(_f({
+      b = <span class="number">5</span>
+    })))
+  <span class="keyword">end</span>)
+<span class="keyword">end</span>)
+describe(<span class="string">"guàrdia v2 guard"</span>, <span class="keyword">function</span>()
+  <span class="keyword">local</span> _utype, _string, _not_number, _number, _tostring, _tonumber, _Whatever
+  <span class="keyword">do</span>
+    <span class="keyword">local</span> _obj_0 = <span class="global">require</span>(<span class="string">"guardia.v2.guards"</span>)
+    _utype, _string, _not_number, _number, _tostring, _tonumber, _Whatever = _obj_0._utype, _obj_0._string, _obj_0._not_number, _obj_0._number, _obj_0._tostring, _obj_0._tonumber, _obj_0._Whatever
+  <span class="keyword">end</span>
+  <span class="keyword">local</span> make_Whatever
+  make_Whatever = <span class="keyword">function</span>(t)
+    <span class="keyword">return</span> <span class="global">setmetatable</span>(t, {
+      __type = <span class="string">"Whatever"</span>
+    })
+  <span class="keyword">end</span>
+  it(<span class="string">"gets a type #_utype"</span>, <span class="keyword">function</span>()
+    <span class="keyword">local</span> getstring = _utype(<span class="string">"string"</span>)
+    <span class="global">assert</span>.are.equal(<span class="keyword">true</span>, getstring(<span class="string">"a"</span>))
+    <span class="keyword">return</span> <span class="global">assert</span>.are.equal(<span class="keyword">false</span>, getstring(<span class="number">5</span>))
+  <span class="keyword">end</span>)
+  it(<span class="string">"checks basic types #_type"</span>, <span class="keyword">function</span>()
+    <span class="global">assert</span>.has.<span class="global">error</span>(<span class="keyword">function</span>()
+      <span class="keyword">return</span> _e1(_string(<span class="number">5</span>))
+    <span class="keyword">end</span>)
+    <span class="global">assert</span>.are.equal(<span class="keyword">false</span>, _st(_string(<span class="string">"a"</span>)))
+    <span class="global">assert</span>.has.<span class="global">error</span>(<span class="keyword">function</span>()
+      <span class="keyword">return</span> _e1(_not_number(<span class="number">5</span>))
+    <span class="keyword">end</span>)
+    <span class="keyword">return</span> <span class="global">assert</span>.are.equal(<span class="keyword">false</span>, _st(_not_number(<span class="string">"a"</span>)))
+  <span class="keyword">end</span>)
+  it(<span class="string">"transforms chains #_tostring #_tonumber"</span>, <span class="keyword">function</span>()
+    <span class="keyword">local</span> ar = _fn(_tostring(_t({
+      b = <span class="number">5</span>
+    })))
+    <span class="global">assert</span>.truthy(ar:match(<span class="string">"table"</span>))
+    ar = _fn(_tonumber(_t(<span class="string">"5"</span>)))
+    <span class="keyword">return</span> <span class="global">assert</span>.are.equal(<span class="number">5</span>, ar)
+  <span class="keyword">end</span>)
+  <span class="keyword">return</span> it(<span class="string">"checks custom types #_custom"</span>, <span class="keyword">function</span>()
+    <span class="keyword">local</span> wh = make_Whatever({
+      b = <span class="number">5</span>
+    })
+    <span class="global">assert</span>.has.<span class="global">error</span>(<span class="keyword">function</span>()
+      <span class="keyword">return</span> _e1(_Whatever(<span class="number">5</span>))
+    <span class="keyword">end</span>)
+    <span class="keyword">return</span> <span class="global">assert</span>.are.equal(<span class="keyword">false</span>, _st(_Whatever(wh)))
+  <span class="keyword">end</span>)
+<span class="keyword">end</span>)
+<span class="keyword">return</span> describe(<span class="string">"guàrdia v2 sign"</span>, <span class="keyword">function</span>()
+  <span class="keyword">local</span> sign
+  sign = <span class="global">require</span>(<span class="string">"guardia.v2.sign"</span>).sign
+  <span class="keyword">return</span> it(<span class="string">"signs a function #sign"</span>, <span class="keyword">function</span>()
+    <span class="keyword">return</span> sign(<span class="string">"(a -&gt; b) -&gt; [a] -&gt; [b]"</span>)
+  <span class="keyword">end</span>)
+<span class="keyword">end</span>)</pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2019-09-30 06:54:05 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
