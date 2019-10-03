@@ -17,7 +17,7 @@ BASE_TYPES = {"number", "string", "function", "thread", "userdata", "nil", "bool
 _utype = (ty, t=type) -> (...) ->
   ret = true
   for v in *{...}
-    if ("table" == t v) and (gm v).__type
+    if ("table" == t v) and (gm v) and (gm v).__type
       switch t (gm v).__type
         when "string"   then ret = ty == (gm v).__type
         when "function" then ret = ty == ((gm v).__type)!

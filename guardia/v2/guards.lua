@@ -26,7 +26,7 @@ _utype = function(ty, t)
     }
     for _index_0 = 1, #_list_0 do
       local v = _list_0[_index_0]
-      if ("table" == t(v)) and (gm(v)).__type then
+      if ("table" == t(v)) and (gm(v)) and (gm(v)).__type then
         local _exp_0 = t((gm(v)).__type)
         if "string" == _exp_0 then
           ret = ty == (gm(v)).__type
