@@ -1,7 +1,7 @@
-local _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _t, _f
+local _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _df, _t, _f
 do
   local _obj_0 = require("guardia.v2")
-  _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _t, _f = _obj_0._fl, _obj_0._tr, _obj_0._ng, _obj_0._ps, _obj_0._fn, _obj_0._er, _obj_0._st, _obj_0._e1, _obj_0._in, _obj_0._ci, _obj_0._t, _obj_0._f
+  _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _df, _t, _f = _obj_0._fl, _obj_0._tr, _obj_0._ng, _obj_0._ps, _obj_0._fn, _obj_0._er, _obj_0._st, _obj_0._e1, _obj_0._in, _obj_0._ci, _obj_0._df, _obj_0._t, _obj_0._f
 end
 describe("guàrdia v2", function()
   local _str = _fl(function(x)
@@ -47,13 +47,17 @@ describe("guàrdia v2", function()
       b = 5
     })))
   end)
-  return it("starts a false chain #_false", function()
+  it("starts a false chain #_false", function()
     return assert.are.equal(false, _st(_f({
       b = 5
     })))
   end)
+  return it("sets a default value #_default", function()
+    assert.are.equal(5, _fn((_df(5))(nil)))
+    return assert.are.equal(4, _fn((_df(5))(4)))
+  end)
 end)
-describe("guàrdia v2 guard", function()
+return describe("guàrdia v2 guard", function()
   local _utype, _string, _not_number, _number, _tostring, _tonumber, _Whatever
   do
     local _obj_0 = require("guardia.v2.guards")
@@ -96,12 +100,5 @@ describe("guàrdia v2 guard", function()
       return _e1(_Whatever(5))
     end)
     return assert.are.equal(false, _st(_Whatever(wh)))
-  end)
-end)
-return describe("guàrdia v2 sign", function()
-  local sign
-  sign = require("guardia.v2.sign").sign
-  return it("signs a function #sign", function()
-    return sign("(a -> b) -> [a] -> [b]")
   end)
 end)

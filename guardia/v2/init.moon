@@ -4,48 +4,52 @@
 -- @author daelvn
 inspect_count = 0
 
---- Filtering function. **Curried function.** *Alias `_fl`.*
+--- Filtering function. **Curried function.** Alias `_fl`.
 -- @tparam function fl Filter.
 -- @treturn function Function that returns whether the filter matched or not, and the arguments passed to it.
-_filter    = (fl) -> (...)     -> if fl ... then true, ... else false, ...
---- Starts a chain, forcing transformation. **Curried function.** *Alias `_t`.*
--- @treturn function Function that starts a chain.
-_true      = (...) -> true, ...
---- Starts a chain, not forcing transformation. **Curried function.** *Alias `_f`.*
--- @treturn function Function that starts a chain.
-_false      = (...) -> false, ...
---- Transforming function. **Curried function.** *Alias `_tr`.*
+_filter = (fl) -> (...) -> if fl ... then true, ... else false, ...
+--- Starts a chain, forcing transformation. **Curried function.** Alias `_t`.
+-- @param ... Parameters to start the chain.
+-- @treturn boolean `true`
+-- @return ...
+_true = (...) -> true, ...
+--- Starts a chain, not forcing transformation. **Curried function.** Alias `_f`.
+-- @param ... Parameters to start the chain.
+-- @treturn boolean `false`
+-- @return ...
+_false = (...) -> false, ...
+--- Transforming function. **Curried function.** Alias `_tr`.
 -- @tparam function tr Transformer.
 -- @treturn function Function that returns whether the arguments were transformed or not, and the arguments passed to it.
-_transform = (tr) -> (b, ...)  -> if b then true, tr ... else false, ...
---- Negating function. *Alias `_ng`.*
+_transform = (tr) -> (b, ...) -> if b then true, tr ... else false, ...
+--- Negating function. Alias `_ng`.
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 -- @treturn boolean Opposite status.
 -- @return ... Same arguments in the stream.
-_negate    = (b, ...)          -> not b, ...
+_negate = (b, ...) -> not b, ...
 --- Filtering function. *Alias `_ps`.*
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 -- @return ... Same arguments in the stream.
-_pass      = (b, ...)          -> ...
+_pass = (b, ...) -> ...
 --- Filtering function. **Curried function.** *Alias `_er`.*
 -- @tparam string msg Error message.
 -- @tparam boolean b Status from last operation.
 -- @param ... **Passed along with last argument.** Arguments in the stream.
 -- @raise Errors with `msg` is `b` is `true`.
-_error     = (msg) -> (b, ...) -> if b then error msg else false, ...
+_error = (msg) -> (b, ...) -> if b then error msg else false, ...
 --- Filtering function. *Alias `_st`.*
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 -- @treturn boolean Status from last operation.
-_status    = (b, ...)           -> b
+_status = (b, ...) -> b
 --- Inspects the values being passed. *Alias `_in`.*
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 -- @treturn boolean Status from last operation.
 -- @return ... Same arguments in the stream.
-_inspect   = (b, ...)           ->
+_inspect = (b, ...) ->
   inspect_count += 1
   print inspect_count, b, ...
   return b, ...
@@ -55,13 +59,17 @@ _inspect   = (b, ...)           ->
 -- @param ... **Passed along with last argument.** Arguments in the stream.
 -- @treturn boolean Status from last operation.
 -- @return ... Same arguments in the stream.
-_named     = (msg) -> (b, ...)  ->
+_named = (msg) -> (b, ...) ->
   print msg, b, ...
   return b, ...
+--- Outputs `false` and the default value if `nil` is passed. **Curried function.** Alias `_df`.
+-- @param v Value to make default.
+-- @treturn function Function that acts as a transformer for the value. `b` is always `false`.
+_default = (v) -> (...) -> return (_transform ->v) (_filter (x)->"nil"==type x) ...
 
 --- Alias to `_pass`
 -- @function _finalize
-_finalize  = _pass
+_finalize = _pass
 
 _fn = _finalize
 _ps = _pass
@@ -72,6 +80,7 @@ _er = _error
 _st = _status
 _in = _inspect
 _ci = _named
+_df = _default
 _t  = _true
 _f  = _false
 --- `_error` with a default error message.
@@ -144,6 +153,7 @@ Antierrguard = (fl) -> (tr)     -> (f) -> (...) -> f _fm _e1 _ng (_fl fl) f ...
   :_finalize,  :_fn
   :_inspect,   :_in
   :_named,     :_ci
+  :_default,   :_df
   :_true,      :_t
   :_false,     :_f
   --

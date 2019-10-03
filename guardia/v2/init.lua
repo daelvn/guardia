@@ -62,6 +62,16 @@ _named = function(msg)
     return b, ...
   end
 end
+local _default
+_default = function(v)
+  return function(...)
+    return (_transform(function()
+      return v
+    end))((_filter(function(x)
+      return "nil" == type(x)
+    end))(...))
+  end
+end
 local _finalize = _pass
 local _fn = _finalize
 local _ps = _pass
@@ -72,6 +82,7 @@ local _er = _error
 local _st = _status
 local _in = _inspect
 local _ci = _named
+local _df = _default
 local _t = _true
 local _f = _false
 local _e1 = _error("guardia $ chain was stopped")
@@ -165,6 +176,8 @@ return {
   _in = _in,
   _named = _named,
   _ci = _ci,
+  _default = _default,
+  _df = _df,
   _true = _true,
   _t = _t,
   _false = _false,

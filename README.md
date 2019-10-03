@@ -72,6 +72,13 @@ _isString = _fl (x) -> "string" == type x
 _e1 _isString 6 -- guardia $ filter did not pass!
 ```
 
+### \_default
+
+```moon
+print _fn (_df 5) nil -- 5
+print _fm (_df 5) 4   -- 4
+```
+
 ## License
 
 I'm throwing this, as always, to the public domain, do what you want with it.

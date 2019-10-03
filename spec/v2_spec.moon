@@ -1,4 +1,4 @@
-import _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _t, _f from require "guardia.v2"
+import _fl, _tr, _ng, _ps, _fn, _er, _st, _e1, _in, _ci, _df, _t, _f from require "guardia.v2"
 
 describe "guàrdia v2", ->
   _str   = _fl (x) -> "string" == type x
@@ -33,6 +33,14 @@ describe "guàrdia v2", ->
   it "starts a false chain #_false", ->
     assert.are.equal false, _st _f b: 5
 
+  it "sets a default value #_default", ->
+    --print (_fl (x)->"nil"==type x) nil
+    --import _nil from require "guardia.v2.guards"
+    --print _nil nil
+    assert.are.equal 5, _fn (_df 5) nil
+    assert.are.equal 4, _fn (_df 5) 4
+
+
 describe "guàrdia v2 guard", ->
   import _utype, _string, _not_number, _number, _tostring, _tonumber, _Whatever from require "guardia.v2.guards"
   make_Whatever = (t) -> setmetatable t, __type: "Whatever"
@@ -58,9 +66,3 @@ describe "guàrdia v2 guard", ->
     wh = make_Whatever b: 5
     assert.has.error ->     _e1 _Whatever 5
     assert.are.equal false, _st _Whatever wh
-
-describe "guàrdia v2 sign", ->
-  import sign from require "guardia.v2.sign"
-
-  it "signs a function #sign", ->
-    sign "(a -> b) -> [a] -> [b]"
