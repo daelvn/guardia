@@ -5,46 +5,55 @@
 inspect_count = 0
 
 --- Filtering function. **Curried function.** Alias `_fl`.
+-- @source _filter
 -- @tparam function fl Filter.
 -- @treturn function Function that returns whether the filter matched or not, and the arguments passed to it.
 _filter = (fl) -> (...) -> if fl ... then true, ... else false, ...
 --- Starts a chain, forcing transformation. **Curried function.** Alias `_t`.
+-- @source _true
 -- @param ... Parameters to start the chain.
 -- @treturn boolean `true`
 -- @return ...
 _true = (...) -> true, ...
 --- Starts a chain, not forcing transformation. **Curried function.** Alias `_f`.
+-- @source _false
 -- @param ... Parameters to start the chain.
 -- @treturn boolean `false`
 -- @return ...
 _false = (...) -> false, ...
 --- Transforming function. **Curried function.** Alias `_tr`.
+-- @transformer _transform
 -- @tparam function tr Transformer.
 -- @treturn function Function that returns whether the arguments were transformed or not, and the arguments passed to it.
 _transform = (tr) -> (b, ...) -> if b then true, tr ... else false, ...
 --- Negating function. Alias `_ng`.
+-- @transformer _negate
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 -- @treturn boolean Opposite status.
 -- @return ... Same arguments in the stream.
 _negate = (b, ...) -> not b, ...
---- Filtering function. *Alias `_ps`.*
+--- Filtering function. Alias `_ps`.
+-- @finalizer _pass
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 -- @return ... Same arguments in the stream.
 _pass = (b, ...) -> ...
---- Filtering function. **Curried function.** *Alias `_er`.*
+--- Filtering function. **Curried function.** Alias `_er`.
+-- @transformer _error
 -- @tparam string msg Error message.
 -- @tparam boolean b Status from last operation.
 -- @param ... **Passed along with last argument.** Arguments in the stream.
 -- @raise Errors with `msg` is `b` is `true`.
 _error = (msg) -> (b, ...) -> if b then error msg else false, ...
---- Filtering function. *Alias `_st`.*
+--- Filtering function. Alias `_st`.
+-- @finalizer _status
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 -- @treturn boolean Status from last operation.
 _status = (b, ...) -> b
---- Inspects the values being passed. *Alias `_in`.*
+--- Inspects the values being passed. Alias `_in`.
+-- @transformer _inspect
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 -- @treturn boolean Status from last operation.
@@ -53,7 +62,8 @@ _inspect = (b, ...) ->
   inspect_count += 1
   print inspect_count, b, ...
   return b, ...
---- Complex inspect. Takes an extra message. **Curried function.** **Alias `_ci`.*
+--- Complex inspect. Takes an extra message. **Curried function.** Alias `_ci`.
+-- @transformer _named
 -- @tparam string msg Error message.
 -- @tparam boolean b Status from last operation.
 -- @param ... **Passed along with last argument.** Arguments in the stream.
@@ -62,13 +72,14 @@ _inspect = (b, ...) ->
 _named = (msg) -> (b, ...) ->
   print msg, b, ...
   return b, ...
---- Outputs `false` and the default value if `nil` is passed. **Curried function.** Alias `_df`.
+--- Makes the value of the chain `v` only if the value passed is nil. **Curried function.** Alias `_df`
+-- @transformer _default
 -- @param v Value to make default.
 -- @treturn function Function that acts as a transformer for the value. `b` is always `false`.
 _default = (v) -> (...) -> return (_transform ->v) (_filter (x)->"nil"==type x) ...
 
 --- Alias to `_pass`
--- @function _finalize
+-- @finalizer _finalize
 _finalize = _pass
 
 _fn = _finalize
@@ -84,7 +95,7 @@ _df = _default
 _t  = _true
 _f  = _false
 --- `_error` with a default error message.
--- @function _e1
+-- @transformer _e1
 -- @tparam boolean b Status from last operation.
 -- @param ... Arguments in the stream.
 _e1 = _error "guardia $ chain was stopped"

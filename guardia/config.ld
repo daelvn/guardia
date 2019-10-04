@@ -6,3 +6,7 @@ dir         = "docs"
 topics      = {"README.md", "README-V1.md"}
 examples    = {"examples", exclude = {"examples/antierrguard.lua", "examples/biguard.lua", "examples/endguard.lua", "examples/guard.lua", "examples/v2_tests.lua"}}
 file        = {"guardia"}
+
+new_type("source", "Sources")
+new_type("transformer", "Transformers")
+new_type("finalizer", "Finalizers")
