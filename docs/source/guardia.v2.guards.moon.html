@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>guardia/v2/guards.moon</title>
+<style type="text/css">
+/* highlight theme: Base16 Nord */
+body.hl	{ background-color:#2e3440; }
+pre.hl	{ color:#e5e9f0; background-color:#2e3440; font-size:10pt; font-family:'Courier New',monospace;}
+.hl.num { color:#81a1c1; }
+.hl.esc { color:#d08770; }
+.hl.str { color:#bf616a; }
+.hl.pps { color:#d08770; }
+.hl.slc { color:#4c566a; font-style:italic; }
+.hl.com { color:#4c566a; font-style:italic; }
+.hl.ppc { color:#b48ead; }
+.hl.opt { color:#e5e9f0; }
+.hl.ipl { color:#81a1c1; }
+.hl.lin { color:#d8dee9; }
+.hl.kwa { color:#a3be8c; font-weight:bold; }
+.hl.kwb { color:#ebcb8b; font-weight:bold; }
+.hl.kwc { color:#88c0d0; font-weight:bold; }
+.hl.kwd { color:#5e81ac; font-weight:bold; }
+.hl.kwe { color:#b48ead; font-weight:bold; }
+.hl.kwf { color:#81a1c1; font-weight:bold; }
+</style>
+</head>
+<body class="hl">
+<pre class="hl"><span class="hl lin" id="L_1">    1 </span><span class="hl slc">--&gt; # guardia.v2.guards</span>
+<span class="hl lin" id="L_2">    2 </span><span class="hl slc">--&gt; Set of guards that come with Guàrdia. Batteries included!&lt;br&gt;</span>
+<span class="hl lin" id="L_3">    3 </span><span class="hl slc">--&gt; Importing `_&lt;type&gt;` from this module will return a type guard for `&lt;type&gt;`.&lt;br&gt;</span>
+<span class="hl lin" id="L_4">    4 </span><span class="hl slc">--&gt; Importing `_not_&lt;type&gt;` from this module will return a negated type guard for `&lt;type&gt;`.&lt;br&gt;</span>
+<span class="hl lin" id="L_5">    5 </span><span class="hl kwa">import</span> _fl<span class="hl opt">,</span> _tr<span class="hl opt">,</span> _ng<span class="hl opt">,</span> _ps<span class="hl opt">,</span> _fn<span class="hl opt">,</span> _er<span class="hl opt">,</span> _st<span class="hl opt">,</span> _e1 <span class="hl kwa">from require</span> <span class="hl str">&quot;guardia.v2&quot;</span>
+<span class="hl lin" id="L_6">    6 </span>gm<span class="hl opt">,</span> sm <span class="hl opt">=</span> getmetatable<span class="hl opt">,</span> setmetatable
+<span class="hl lin" id="L_7">    7 </span>
+<span class="hl lin" id="L_8">    8 </span>BASE_TYPES <span class="hl opt">= {</span><span class="hl str">&quot;number&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;string&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;function&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;thread&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;userdata&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;nil&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;boolean&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;table&quot;</span><span class="hl opt">}</span>
+<span class="hl lin" id="L_9">    9 </span>
+<span class="hl lin" id="L_10">   10 </span><span class="hl slc">--&gt; ## _utype</span>
+<span class="hl lin" id="L_11">   11 </span><span class="hl slc">--# _utype</span>
+<span class="hl lin" id="L_12">   12 </span><span class="hl slc">--: _utype (string, function) -&gt; (...) -&gt; boolean</span>
+<span class="hl lin" id="L_13">   13 </span><span class="hl slc">--&gt; Underlying type checker for [_type](#_type), also supporting the `__type` metafield</span>
+<span class="hl lin" id="L_14">   14 </span><span class="hl slc">--&gt; for custom types.</span>
+<span class="hl lin" id="L_15">   15 </span>_utype <span class="hl opt">= (</span>ty<span class="hl opt">,</span> t<span class="hl opt">=</span><span class="hl kwb">type</span><span class="hl opt">) -&gt; (...) -&gt;</span>
+<span class="hl lin" id="L_16">   16 </span>  ret <span class="hl opt">=</span> <span class="hl kwa">true</span>
+<span class="hl lin" id="L_17">   17 </span>  <span class="hl kwa">for</span> v <span class="hl kwa">in</span> <span class="hl opt">*{...}</span>
+<span class="hl lin" id="L_18">   18 </span>    <span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl str">&quot;table&quot;</span> <span class="hl opt">==</span> t v<span class="hl opt">)</span> <span class="hl kwa">and</span> <span class="hl opt">(</span>gm v<span class="hl opt">)</span> <span class="hl kwa">and</span> <span class="hl opt">(</span>gm v<span class="hl opt">).</span>__type
+<span class="hl lin" id="L_19">   19 </span>      switch <span class="hl kwd">t</span> <span class="hl opt">(</span>gm v<span class="hl opt">).</span>__type
+<span class="hl lin" id="L_20">   20 </span>        when <span class="hl str">&quot;string&quot;</span>   <span class="hl kwa">then</span> ret <span class="hl opt">=</span> ty <span class="hl opt">== (</span>gm v<span class="hl opt">).</span>__type
+<span class="hl lin" id="L_21">   21 </span>        when <span class="hl str">&quot;function&quot;</span> <span class="hl kwa">then</span> ret <span class="hl opt">=</span> ty <span class="hl opt">== ((</span>gm v<span class="hl opt">).</span>__type<span class="hl opt">)!</span>
+<span class="hl lin" id="L_22">   22 </span>        <span class="hl kwa">else</span>                 ret <span class="hl opt">=</span> ty <span class="hl opt">==</span> t v
+<span class="hl lin" id="L_23">   23 </span>    <span class="hl kwa">else</span> ret <span class="hl opt">=</span> ty <span class="hl opt">==</span> t v
+<span class="hl lin" id="L_24">   24 </span>    <span class="hl kwa">return false</span> unless ret
+<span class="hl lin" id="L_25">   25 </span>  <span class="hl kwa">return</span> ret
+<span class="hl lin" id="L_26">   26 </span>
+<span class="hl lin" id="L_27">   27 </span><span class="hl slc">--&gt; ## _type</span>
+<span class="hl lin" id="L_28">   28 </span><span class="hl slc">--# _type</span>
+<span class="hl lin" id="L_29">   29 </span><span class="hl slc">--: _type (string, function) -&gt; (...) -&gt; boolean, ...</span>
+<span class="hl lin" id="L_30">   30 </span><span class="hl slc">--&gt; Type-checking source guard. Has to be manually finalized with [_ps](/guardia.v2.init#_ps).</span>
+<span class="hl lin" id="L_31">   31 </span>_type <span class="hl opt">= (</span>ty<span class="hl opt">,</span> t<span class="hl opt">=</span><span class="hl kwb">type</span><span class="hl opt">) -&gt; (...) -&gt;</span> <span class="hl kwd">_ng</span> <span class="hl opt">(</span><span class="hl kwd">_fl</span> <span class="hl opt">(</span>_utype ty<span class="hl opt">,</span> t<span class="hl opt">)) ...</span>
+<span class="hl lin" id="L_32">   32 </span>
+<span class="hl lin" id="L_33">   33 </span><span class="hl slc">--&gt; ## _utable</span>
+<span class="hl lin" id="L_34">   34 </span><span class="hl slc">--# _utable</span>
+<span class="hl lin" id="L_35">   35 </span><span class="hl slc">--: _utable (string, function) -&gt; (...) -&gt; boolean</span>
+<span class="hl lin" id="L_36">   36 </span><span class="hl slc">--&gt; Underlying table checker for [_tableof](#_tableof)</span>
+<span class="hl lin" id="L_37">   37 </span>_utable <span class="hl opt">= (</span>ty<span class="hl opt">,</span> t<span class="hl opt">=</span><span class="hl kwb">type</span><span class="hl opt">) -&gt; (...) -&gt;</span>
+<span class="hl lin" id="L_38">   38 </span>  <span class="hl kwa">for</span> v <span class="hl kwa">in</span> <span class="hl opt">*{...}</span>
+<span class="hl lin" id="L_39">   39 </span>    <span class="hl kwa">return false if</span> <span class="hl str">&quot;table&quot;</span> <span class="hl opt">!=</span> t v
+<span class="hl lin" id="L_40">   40 </span>    <span class="hl kwa">for</span> e <span class="hl kwa">in</span> <span class="hl opt">*</span>v
+<span class="hl lin" id="L_41">   41 </span>      <span class="hl kwa">return false if</span> ty <span class="hl opt">!=</span> t e
+<span class="hl lin" id="L_42">   42 </span>  <span class="hl kwa">return true</span>
+<span class="hl lin" id="L_43">   43 </span>
+<span class="hl lin" id="L_44">   44 </span><span class="hl slc">--&gt; ## _tableof</span>
+<span class="hl lin" id="L_45">   45 </span><span class="hl slc">--# _tableof</span>
+<span class="hl lin" id="L_46">   46 </span><span class="hl slc">--: _tableof (string, function) -&gt; (...) -&gt; ...</span>
+<span class="hl lin" id="L_47">   47 </span><span class="hl slc">--&gt; Guard that checks that all elements of a table are of the same type.</span>
+<span class="hl lin" id="L_48">   48 </span>_tableof <span class="hl opt">= (</span>ty<span class="hl opt">,</span> t<span class="hl opt">=</span><span class="hl kwb">type</span><span class="hl opt">) -&gt; (...) -&gt;</span> <span class="hl kwd">_ng</span> <span class="hl opt">(</span><span class="hl kwd">_fl</span> <span class="hl opt">(</span>_utable ty<span class="hl opt">,</span> t<span class="hl opt">)) ...</span>
+<span class="hl lin" id="L_49">   49 </span>
+<span class="hl lin" id="L_50">   50 </span><span class="hl slc">--&gt; ## _tostring</span>
+<span class="hl lin" id="L_51">   51 </span><span class="hl slc">--# _tostring</span>
+<span class="hl lin" id="L_52">   52 </span><span class="hl slc">--: _tostring (boolean, ...) -&gt; boolean, ...</span>
+<span class="hl lin" id="L_53">   53 </span><span class="hl slc">--&gt; [tostring](https://lua.org/whatever#pdf-tostring) transformer guard.</span>
+<span class="hl lin" id="L_54">   54 </span>_tostring <span class="hl opt">=</span> _tr <span class="hl kwb">tostring</span>
+<span class="hl lin" id="L_55">   55 </span>
+<span class="hl lin" id="L_56">   56 </span><span class="hl slc">--&gt; ## _tonumber</span>
+<span class="hl lin" id="L_57">   57 </span><span class="hl slc">--# _tonumber</span>
+<span class="hl lin" id="L_58">   58 </span><span class="hl slc">--: _tonumber (boolean, ...) -&gt; boolean, ...</span>
+<span class="hl lin" id="L_59">   59 </span><span class="hl slc">--&gt; [tonumber](https://lua.org/whatever#pdf-tonumber) transformer guard.</span>
+<span class="hl lin" id="L_60">   60 </span>_tonumber <span class="hl opt">=</span> _tr <span class="hl kwb">tonumber</span>
+<span class="hl lin" id="L_61">   61 </span>
+<span class="hl lin" id="L_62">   62 </span>setmetatable <span class="hl opt">{</span>
+<span class="hl lin" id="L_63">   63 </span>  <span class="hl opt">:</span>_utype
+<span class="hl lin" id="L_64">   64 </span>  <span class="hl opt">:</span>_type
+<span class="hl lin" id="L_65">   65 </span>  <span class="hl opt">:</span>_utable
+<span class="hl lin" id="L_66">   66 </span>  <span class="hl opt">:</span>_tableof
+<span class="hl lin" id="L_67">   67 </span>  <span class="hl opt">:</span>_tostring
+<span class="hl lin" id="L_68">   68 </span>  <span class="hl opt">:</span>_tonumber
+<span class="hl lin" id="L_69">   69 </span><span class="hl opt">}, {</span>
+<span class="hl lin" id="L_70">   70 </span>  <span class="hl kwd">__index:</span> <span class="hl opt">(</span>i<span class="hl opt">) =&gt;</span>
+<span class="hl lin" id="L_71">   71 </span>    <span class="hl kwa">if</span> ty <span class="hl opt">=</span> i<span class="hl kwd">\match</span> <span class="hl str">&quot;^_not_(.+)&quot;</span>
+<span class="hl lin" id="L_72">   72 </span>      <span class="hl kwa">return</span> <span class="hl opt">(...) -&gt;</span> <span class="hl kwd">_ng</span> <span class="hl opt">(</span>_type ty<span class="hl opt">) ...</span>
+<span class="hl lin" id="L_73">   73 </span>    <span class="hl kwa">elseif</span> ty <span class="hl opt">=</span> i<span class="hl kwd">\match</span> <span class="hl str">&quot;^_(.+)&quot;</span>
+<span class="hl lin" id="L_74">   74 </span>      <span class="hl kwa">return</span> _type ty
+<span class="hl lin" id="L_75">   75 </span>    <span class="hl kwa">else</span>
+<span class="hl lin" id="L_76">   76 </span>      <span class="hl kwa">return</span> <span class="hl kwb">rawget</span> &#64;<span class="hl opt">,</span> i
+<span class="hl lin" id="L_77">   77 </span><span class="hl opt">}</span>
+</pre>
+</body>
+</html>
+<!--HTML generated by highlight 3.53, http://www.andre-simon.de/-->
