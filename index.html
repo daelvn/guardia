@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Guàrdia</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href=".">Guàrdia</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href=".">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="guardia.v2.init/">guardia.v2.init</a>
+</li>
+                                    
+<li >
+    <a href="guardia.v2.guards/">guardia.v2.guards</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="disabled">
+                                <a rel="next" >
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="guardia.v2.init/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#guardia-2-function-guards-for-lua-moonscript">Guàrdia 2 - Function guards for Lua &amp; MoonScript</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#documentation">Documentation</a></li>
+            <li><a href="#changelog">Changelog</a></li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#license">License</a></li>
+            <li><a href="#maintainer">Maintainer</a></li>
+            <li><a href="#goodbye">Goodbye?</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="guardia-2-function-guards-for-lua-moonscript">Guàrdia 2 - Function guards for Lua &amp; MoonScript</h1>
+<p>Guàrdia is a small library in hopes of obsoleting <a href="https://github.com/Yonaba/guard.lua">guard.lua</a>, which is pretty old
+already if you ask me. This one, to nobody's surprise, is curried and focused on MoonScript, but hey, you're stil free to
+use it in Lua.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>$ luarocks install guardia
+</code></pre>
+
+<h2 id="documentation">Documentation</h2>
+<p>You can find the documentation over <a href="https://git.daelvn.ga/guardia">here.</a></p>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>If you don't want to have to change all of your code, <code>guardia.v2</code> provides replacements written using the new terms, so no need to worry about that.</li>
+<li>Functions are now defined in an actually compositive manner.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="95pass-95finalize">_pass / _finalize</h3>
+<pre><code class="moon">_ps true, 5 -- 5
+</code></pre>
+
+<h3 id="95filter">_filter</h3>
+<pre><code class="moon">_isString = _fl (x) -&gt; &quot;string&quot; == type x
+_id       = (x) -&gt; x
+id        = (x) -&gt; id _fn _isString x
+</code></pre>
+
+<h3 id="95transform">_transform</h3>
+<pre><code class="moon">_toString = _tr tostring
+_id       = (x) -&gt; x
+id        = (x) -&gt; id _ps _toString (_fl-&gt;true) x
+</code></pre>
+
+<h3 id="95status">_status</h3>
+<pre><code class="moon">_isString = _fl (x) -&gt; &quot;string&quot; == type x
+print _st _isString 5 -- false
+</code></pre>
+
+<h3 id="95negate">_negate</h3>
+<pre><code class="moon">_isString = _fl (x) -&gt; &quot;string&quot; == type x
+print _st _ng _isString 5 -- true
+</code></pre>
+
+<h3 id="95error">_error</h3>
+<pre><code class="moon">_isString = _fl (x) -&gt; &quot;string&quot; == type x
+_ex = _er &quot;argument is not a string!&quot;
+_ex _isString 6 -- Error! argument is not a string!
+</code></pre>
+
+<h3 id="95e1">_e1</h3>
+<pre><code class="moon">_isString = _fl (x) -&gt; &quot;string&quot; == type x
+_e1 _isString 6 -- guardia $ filter did not pass!
+</code></pre>
+
+<h3 id="95default">_default</h3>
+<pre><code class="moon">print _fn (_df 5) nil -- 5
+print _fm (_df 5) 4   -- 4
+</code></pre>
+
+<h2 id="license">License</h2>
+<p>I'm throwing this, as always, to the public domain, do what you want with it.</p>
+<h2 id="maintainer">Maintainer</h2>
+<p>Dael [daelvn@gmail.com]</p>
+<h2 id="goodbye">Goodbye?</h2>
+<p>goodbye.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-10-18 03:11:39
+-->
