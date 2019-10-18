@@ -1,117 +1,77 @@
---- Set of guards that come with guardia. Batteries included!
--- @module guardia.guards
--- @author daelvn
-import Guard, Antiguard, Biguard, Endguard, Errguard, Antierrguard, Enderrguard from require "guardia"
-id     = (...) -> ...
+--> # guardia.guards
+--> Set of guards that come with Guàrdia. Batteries included!<br>
+--> Importing `_<type>` from this module will return a type guard for `<type>`.<br>
+--> Importing `_not_<type>` from this module will return a negated type guard for `<type>`.<br>
+import _fl, _tr, _ng, _ps, _fn, _er, _st, _e1 from require "guardia.v2"
 gm, sm = getmetatable, setmetatable
 
-_isType = (ty, t=type) -> (v) ->
-  if ("table" == t v) and (gm v).__type
-    switch t (gm v).__type
-      when "string"   then return ty == (gm v).__type
-      when "function" then return ty == ((gm v).__type)!
-      else                 return ty == t v
-  else return ty == t v
---- Type-checking errguards.
--- `guardia.guards` automatically creates functions such as `getsNumber` or `getsNil` for all Lua base types.
--- It also supports the `__type` metafield for custom types.
--- @tparam string ty Type to check for.
--- @tparam function|nil t Type function to use.
--- @treturn function Function that takes another to guard.
-getsType = (ty, t=type) -> (Errguard _isType ty, t) id
+BASE_TYPES = {"number", "string", "function", "thread", "userdata", "nil", "boolean", "table"}
 
-_baseTypes  = {"number", "string", "function", "thread", "userdata", "nil", "boolean", "table"}
-_capitalize = (v) -> (string.upper string.sub v, 1, 1) .. string.sub v, 2
-_typeGuards = {("gets".._capitalize v), (getsType v) for v in *_baseTypes}
-import
-  getsNumber,
-  getsString,
-  getsFunction,
-  getsThread
-  getsUserdata,
-  getsNil,
-  getsBoolean,
-  getsTable from _typeGuards
+--> ## _utype
+--# _utype
+--: _utype (string, function) -> (...) -> boolean
+--> Underlying type checker for [_type](#_type), also supporting the `__type` metafield
+--> for custom types.
+_utype = (ty, t=type) -> (...) ->
+  ret = true
+  for v in *{...}
+    if ("table" == t v) and (gm v) and (gm v).__type
+      switch t (gm v).__type
+        when "string"   then ret = ty == (gm v).__type
+        when "function" then ret = ty == ((gm v).__type)!
+        else                 ret = ty == t v
+    else ret = ty == t v
+    return false unless ret
+  return ret
 
---- Type-checking enderrguards.
--- `guardia.guards` automatically creates functions such as `expectsNumber` or `expectsNil` for all Lua base types.
--- @tparam string ty Type to check for.
--- @tparam function|nil t Type function to use.
--- @treturn function Function that takes another to guard.
-expectsType = (ty, t=type) -> (Enderrguard _isType ty, t) id
+--> ## _type
+--# _type
+--: _type (string, function) -> (...) -> boolean, ...
+--> Type-checking source guard. Has to be manually finalized with [_ps](/guardia.v2.init#_ps).
+_type = (ty, t=type) -> (...) -> _ng (_fl (_utype ty, t)) ...
 
-_typeEndguards = {("expects".._capitalize v), (expectsType v) for v in *_baseTypes}
-import
-  expectsNumber,
-  expectsString,
-  expectsFunction,
-  expectsThread
-  expectsUserdata,
-  expectsNil,
-  expectsBoolean,
-  expectsTable from _typeGuards
---- Type-checking antierrguards.
--- `guardia.guards` automatically creates functions such as `exceptNumber` or `exceptNil` for all Lua base types.
--- @tparam string ty Type to check for.
--- @tparam function|nil t Type function to use.
--- @treturn function Function that takes another to guard.
-exceptType = (ty, t=type) -> (Antierrguard _isType ty, t) id
+--> ## _utable
+--# _utable
+--: _utable (string, function) -> (...) -> boolean
+--> Underlying table checker for [_tableof](#_tableof)
+_utable = (ty, t=type) -> (...) ->
+  for v in *{...}
+    return false if "table" != t v
+    for e in *v
+      return false if ty != t e
+  return true
 
-__typeAntiguards = {("except".._capitalize v), (exceptType v) for v in *_baseTypes}
-import
-  exceptNumber,
-  exceptString,
-  exceptFunction,
-  exceptThread
-  exceptUserdata,
-  exceptNil,
-  exceptBoolean,
-  exceptTable from _typeGuards
+--> ## _tableof
+--# _tableof
+--: _tableof (string, function) -> (...) -> ...
+--> Guard that checks that all elements of a table are of the same type.
+_tableof = (ty, t=type) -> (...) -> _ng (_fl (_utable ty, t)) ...
 
---- Forcefully getting a string (using `tostring`). \[Guard\].
--- @treturn function Function that expects another to guard.
-getsStringForced = -> (Guard ->true) (v) -> tostring v
+--> ## _tostring
+--# _tostring
+--: _tostring (boolean, ...) -> boolean, ...
+--> [tostring](https://lua.org/whatever#pdf-tostring) transformer guard.
+_tostring = _tr tostring
 
---- Checks whether a number passed is odd.
--- @treturn function Function that expects another to guard.
-getsOdd = -> (Guard (n)->n%2==0) id
+--> ## _tonumber
+--# _tonumber
+--: _tonumber (boolean, ...) -> boolean, ...
+--> [tonumber](https://lua.org/whatever#pdf-tonumber) transformer guard.
+_tonumber = _tr tonumber
 
---- Checks whether a number passed is even.
--- @treturn function Function that expects another to guard.
-getsEven = -> (Antiguard (n)->n%2==0) id
-
-{
-  -- gets
-  :getsType
-  :getsNumber
-  :getsString
-  :getsFunction
-  :getsThread
-  :getsUserdata
-  :getsNil
-  :getsBoolean
-  :getsTable
-  -- expects
-  :expectsType
-  :expectsNumber
-  :expectsString
-  :expectsFunction
-  :expectsThread
-  :expectsUserdata
-  :expectsNil
-  :expectsBoolean
-  :expectsTable
-  -- except
-  :exceptType
-  :exceptNumber
-  :exceptString
-  :exceptFunction
-  :exceptThread
-  :exceptUserdata
-  :exceptNil
-  :exceptBoolean
-  :exceptTable
-  -- other
-  :getsStringForced
-  :getsOdd, :getsEven
+setmetatable {
+  :_utype
+  :_type
+  :_utable
+  :_tableof
+  :_tostring
+  :_tonumber
+}, {
+  __index: (i) =>
+    if ty = i\match "^_not_(.+)"
+      return (...) -> _ng (_type ty) ...
+    elseif ty = i\match "^_(.+)"
+      return _type ty
+    else
+      return rawget @, i
 }

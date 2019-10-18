@@ -6,5 +6,5 @@ theme:
 nav:
   - Home: 'README.md'
   - Modules:
-    - 'guardia.v2.init': 'guardia.v2.init.md'
-    - 'guardia.v2.guards': 'guardia.v2.guards.md'
+    - 'guardia.init': 'guardia.init.md'
+    - 'guardia.guards': 'guardia.guards.md'

@@ -16,6 +16,12 @@ You can find the documentation over [here.](https://git.daelvn.ga/guardia)
 
 ## Changelog
 
+## v3
+
+- Removed support for the `v1` functions, now `guardia.v2` becomes simply `guardia`.
+
+## v2
+
 - If you don't want to have to change all of your code, `guardia.v2` provides replacements written using the new terms, so no need to worry about that.
 - Functions are now defined in an actually compositive manner.
 
