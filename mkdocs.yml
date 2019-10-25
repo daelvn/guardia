@@ -1,10 +1,42 @@
 site_name: Guàrdia
+repo_name: 'daelvn/guardia'
+repo_url:  'https://github.com/daelvn/guardia'
 
 theme:
-  name: flatly
+  name: material
+  palette:
+    primary: 'Amber'
+    accent: 'Teal'
+  logo:
+    icon: 'lock'
+  feature:
+    tabs: true
+
+markdown_extensions:
+  - admonition
+  - meta
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/daelvn'
+    - type: 'twitter'
+      link: 'https://queer.party/@daelvn'
 
 nav:
-  - Home: 'README.md'
+  - Home: 'index.md'
+  - Changelog: 'changelog.md'
+  - Manual:
+    - Core: 'manual/core.md'
+    - Guards: 'manual/guards.md'
   - Modules:
-    - 'guardia.init': 'guardia.init.md'
-    - 'guardia.guards': 'guardia.guards.md'
+    - 'guardia.init': 'module/guardia.init.md'
+    - 'guardia.guards': 'module/guardia.guards.md'
+  - Examples:
+    - 'core.moon': 'examples/core.md'
+    - 'simple-type-checking.moon': 'examples/simple-type-checking.md'
