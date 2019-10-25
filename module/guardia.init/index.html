@@ -1,0 +1,1213 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>guardia.init - Guàrdia</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ffa000">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="amber" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#guardiainit" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Guàrdia" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">lock</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Guàrdia
+            </span>
+            <span class="md-header-nav__topic">
+              
+                guardia.init
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/daelvn/guardia/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    daelvn/guardia
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../manual/core/" class="md-tabs__link">
+          Manual
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Modules
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/core/" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Guàrdia" class="md-nav__button md-logo">
+      
+        <i class="md-icon">lock</i>
+      
+    </a>
+    Guàrdia
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/daelvn/guardia/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    daelvn/guardia
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Manual
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Manual
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../manual/core/" title="Core" class="md-nav__link">
+      Core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../manual/guards/" title="Guards" class="md-nav__link">
+      Guards
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        guardia.init
+      </label>
+    
+    <a href="./" title="guardia.init" class="md-nav__link md-nav__link--active">
+      guardia.init
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    Sources
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#95filter" class="md-nav__link">
+    _filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95true" class="md-nav__link">
+    _true
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95false" class="md-nav__link">
+    _false
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95default" class="md-nav__link">
+    _default
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transformers" class="md-nav__link">
+    Transformers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#95transform" class="md-nav__link">
+    _transform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95negate" class="md-nav__link">
+    _negate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95error" class="md-nav__link">
+    _error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95e1" class="md-nav__link">
+    _e1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95inspect" class="md-nav__link">
+    _inspect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95named" class="md-nav__link">
+    _named
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finalizers" class="md-nav__link">
+    Finalizers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#95pass" class="md-nav__link">
+    _pass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95status" class="md-nav__link">
+    _status
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logic-operators" class="md-nav__link">
+    Logic operators
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#95or" class="md-nav__link">
+    _or
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95or1" class="md-nav__link">
+    _or1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95and" class="md-nav__link">
+    _and
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95and1" class="md-nav__link">
+    _and1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95xor" class="md-nav__link">
+    _xor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95xor1" class="md-nav__link">
+    _xor1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1-guards" class="md-nav__link">
+    v1 Guards
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guard" class="md-nav__link">
+    Guard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antiguard" class="md-nav__link">
+    Antiguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biguard" class="md-nav__link">
+    Biguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endguard" class="md-nav__link">
+    Endguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errguard" class="md-nav__link">
+    Errguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enderrguard" class="md-nav__link">
+    Enderrguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antierrguard" class="md-nav__link">
+    Antierrguard
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+        <li class="md-nav__item">
+          <a href="#__source" class="md-nav__link md-nav__link--active">
+            Source
+          </a>
+        </li>
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guardia.guards/" title="guardia.guards" class="md-nav__link">
+      guardia.guards
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/core/" title="core.moon" class="md-nav__link">
+      core.moon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/simple-type-checking/" title="simple-type-checking.moon" class="md-nav__link">
+      simple-type-checking.moon
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    Sources
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#95filter" class="md-nav__link">
+    _filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95true" class="md-nav__link">
+    _true
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95false" class="md-nav__link">
+    _false
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95default" class="md-nav__link">
+    _default
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transformers" class="md-nav__link">
+    Transformers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#95transform" class="md-nav__link">
+    _transform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95negate" class="md-nav__link">
+    _negate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95error" class="md-nav__link">
+    _error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95e1" class="md-nav__link">
+    _e1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95inspect" class="md-nav__link">
+    _inspect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95named" class="md-nav__link">
+    _named
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finalizers" class="md-nav__link">
+    Finalizers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#95pass" class="md-nav__link">
+    _pass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95status" class="md-nav__link">
+    _status
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logic-operators" class="md-nav__link">
+    Logic operators
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#95or" class="md-nav__link">
+    _or
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95or1" class="md-nav__link">
+    _or1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95and" class="md-nav__link">
+    _and
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95and1" class="md-nav__link">
+    _and1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95xor" class="md-nav__link">
+    _xor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95xor1" class="md-nav__link">
+    _xor1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1-guards" class="md-nav__link">
+    v1 Guards
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guard" class="md-nav__link">
+    Guard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antiguard" class="md-nav__link">
+    Antiguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biguard" class="md-nav__link">
+    Biguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endguard" class="md-nav__link">
+    Endguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errguard" class="md-nav__link">
+    Errguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enderrguard" class="md-nav__link">
+    Enderrguard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antierrguard" class="md-nav__link">
+    Antierrguard
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+        <li class="md-nav__item">
+          <a href="#__source" class="md-nav__link md-nav__link--active">
+            Source
+          </a>
+        </li>
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/daelvn/guardia/edit/master/docs/module/guardia.init.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="guardiainit">guardia.init<a class="headerlink" href="#guardiainit" title="Permanent link">&para;</a></h1>
+<p>Guards for Lua. Based upon <a href="https://github.com/Yonaba/guard.lua">guard.lua</a>.
+This version is rather thought for curried functions and use with MoonScript.</p>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<p>Sources are functions that take a set of values and start a guard chain. They're always
+of the kind <code class="codehilite"><span class="p">(...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code>.</p>
+<h3 id="95filter">_filter<a class="headerlink" href="#95filter" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_fl</span></code><br>
+Filtering function. If the filter passes, the first returned value is <code class="codehilite"><span class="k">true</span></code>, <code class="codehilite"><span class="k">false</span></code> otherwise.</p>
+<h3 id="95true">_true<a class="headerlink" href="#95true" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_t</span></code><br>
+Starts a chain, always returning <code class="codehilite"><span class="k">true</span></code>.</p>
+<h3 id="95false">_false<a class="headerlink" href="#95false" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_f</span></code><br>
+Starts a chain, always returning <code class="codehilite"><span class="k">false</span></code>.</p>
+<h3 id="95default">_default<a class="headerlink" href="#95default" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_df</span></code><br>
+Makes the value of the chain <code class="codehilite"><span class="n">a</span></code> only if the first argument is <code class="codehilite"><span class="n">nil</span></code>.</p>
+<h2 id="transformers">Transformers<a class="headerlink" href="#transformers" title="Permanent link">&para;</a></h2>
+<p>Transformers are functions which continue a chain, also modifying the arguments that go along
+with the boolean. They're always of the kind <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code>.</p>
+<h3 id="95transform">_transform<a class="headerlink" href="#95transform" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_tr</span></code><br>
+Transforms the values being passed through a function, only if the boolean passed is <code class="codehilite"><span class="k">true</span></code>.</p>
+<h3 id="95negate">_negate<a class="headerlink" href="#95negate" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_ng</span></code><br>
+Negates the status from last operation.</p>
+<h3 id="95error">_error<a class="headerlink" href="#95error" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="n">msg</span><span class="p">:</span><span class="n">string</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="k">false</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_er</span></code><br>
+<strong>Raises →</strong> Error message passed to the function (if boolean is <code class="codehilite"><span class="k">true</span></code>).<br>
+Errors with <code class="codehilite"><span class="n">msg</span></code> if the status is <code class="codehilite"><span class="k">true</span></code>.</p>
+<h3 id="95e1">_e1<a class="headerlink" href="#95e1" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="k">false</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Raises →</strong> "guardia $ chain was stopped"<br>
+Predefined error for <a href="#_error">_error</a>.</p>
+<h3 id="95inspect">_inspect<a class="headerlink" href="#95inspect" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_in</span></code><br>
+Prints an inspect count number and every value on the chain, including the boolean.</p>
+<h3 id="95named">_named<a class="headerlink" href="#95named" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_ci</span></code><br>
+Complex inspect. Instead of the inspect count number, prints the message along with every value on the
+chain and the status.</p>
+<h2 id="finalizers">Finalizers<a class="headerlink" href="#finalizers" title="Permanent link">&para;</a></h2>
+<p>Finalizers are functions that end a guard chain, returning only part of the values. Their form
+can either be <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span></code> or <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="p">...</span></code>.</p>
+<h3 id="95pass">_pass<a class="headerlink" href="#95pass" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="p">...</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_ps</span></code>, <code class="codehilite"><span class="n">_fn</span></code><br>
+Ignores the boolean and returns the varargs.</p>
+<h3 id="95status">_status<a class="headerlink" href="#95status" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="nb">boolean</span><span class="p">,</span> <span class="p">...)</span> <span class="o">-&gt;</span> <span class="nb">boolean</span></code><br>
+<strong>Alias →</strong> <code class="codehilite"><span class="n">_st</span></code><br>
+Returns the status from the chain and nothing else.</p>
+<h2 id="logic-operators">Logic operators<a class="headerlink" href="#logic-operators" title="Permanent link">&para;</a></h2>
+<p>Basically wrappers that allow you to OR, AND, XOR, etc. various sources. These technically count as sources.</p>
+<h3 id="95or">_or<a class="headerlink" href="#95or" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">function</span></code><br>
+ORs two sources.</p>
+<h3 id="95or1">_or1<a class="headerlink" href="#95or1" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">,</span> <span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">function</span></code><br>
+Uncurried <a href="#_or">_or</a>.</p>
+<h3 id="95and">_and<a class="headerlink" href="#95and" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">function</span></code><br>
+ANDs two sources.</p>
+<h3 id="95and1">_and1<a class="headerlink" href="#95and1" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">,</span> <span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">function</span></code><br>
+Uncurried <a href="#_and">_and</a>.</p>
+<h3 id="95xor">_xor<a class="headerlink" href="#95xor" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">function</span></code><br>
+XORs two sources.</p>
+<h3 id="95xor1">_xor1<a class="headerlink" href="#95xor1" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">,</span> <span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">function</span></code><br>
+Uncurried <a href="#_xor">_xor</a>.</p>
+<h2 id="v1-guards">v1 Guards<a class="headerlink" href="#v1-guards" title="Permanent link">&para;</a></h2>
+<p>These guards are v1 replicas made using the new guard functions. They are the closest to
+the original <code class="codehilite"><span class="n">guard</span><span class="p">.</span><span class="n">lua</span></code>. Most of them take the form <code class="codehilite"><span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(...)</span> <span class="o">-&gt;</span> <span class="p">...</span></code>.</p>
+<h3 id="guard">Guard<a class="headerlink" href="#guard" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="n">fl</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">tr</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(...)</span> <span class="o">-&gt;</span> <span class="p">...</span></code><br>
+Uses a filter and transformer function on a set of values passed to <code class="codehilite"><span class="n">f</span></code>.</p>
+<h3 id="antiguard">Antiguard<a class="headerlink" href="#antiguard" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="n">fl</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">tr</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(...)</span> <span class="o">-&gt;</span> <span class="p">...</span></code><br>
+Equivalent to <a href="#Guard">Guard</a>, but negates the results of <code class="codehilite"><span class="n">fl</span></code>.</p>
+<h3 id="biguard">Biguard<a class="headerlink" href="#biguard" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="n">fl</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">tr</span><span class="p">:</span><span class="k">function</span><span class="p">,</span> <span class="n">ar</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(...)</span> <span class="o">-&gt;</span> <span class="p">...</span></code><br>
+Essentially a mix of <a href="#Guard">Guard</a> and <a href="#Antiguard">Antiguard</a>, so the transformer <code class="codehilite"><span class="n">tr</span></code> runs
+when the filter passes, <code class="codehilite"><span class="n">ar</span></code> otherwise.</p>
+<h3 id="endguard">Endguard<a class="headerlink" href="#endguard" title="Permanent link">&para;</a></h3>
+<p><strong>Signature →</strong> <code class="codehilite"><span class="p">(</span><span class="n">fl</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">tr</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="k">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(...)</span> <span class="o">-&gt;</span> <span class="p">...</span></code><br>
+A guard for the result values of the function <code class="codehilite"><span class="n">f</span></code> called with <code class="codehilite"><span class="p">...</span></code>.</p>
+<h3 id="errguard">Errguard<a class="headerlink" href="#errguard" title="Permanent link">&para;</a></h3>
+<p><a href="#Guard">Guard</a> but errors if the filter does not pass.</p>
+<h3 id="enderrguard">Enderrguard<a class="headerlink" href="#enderrguard" title="Permanent link">&para;</a></h3>
+<p><a href="#Endguard">Endguard</a> but errors if the filter does not pass.</p>
+<h3 id="antierrguard">Antierrguard<a class="headerlink" href="#antierrguard" title="Permanent link">&para;</a></h3>
+<p><a href="#Antiguard">Antiguard</a> but errors if the filter does not pass.</p>
+                
+                  
+                    <h2 id="__source">Source</h2>
+                    
+                    
+                      
+                    
+                    
+                    
+                    <a href="https://github.com/daelvn/guardia/guardia/init.moon" title="init.moon" class="md-source-file">
+                      init.moon
+                    </a>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../manual/guards/" title="Guards" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Guards
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../guardia.guards/" title="guardia.guards" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                guardia.guards
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/daelvn" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://queer.party/@daelvn" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

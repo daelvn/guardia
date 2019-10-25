@@ -1,0 +1,1196 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Core - Guàrdia</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ffa000">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="amber" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#guardia-core-manual" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Guàrdia" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">lock</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Guàrdia
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Core
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/daelvn/guardia/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    daelvn/guardia
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Manual
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../module/guardia.init/" class="md-tabs__link">
+          Modules
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/core/" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Guàrdia" class="md-nav__button md-logo">
+      
+        <i class="md-icon">lock</i>
+      
+    </a>
+    Guàrdia
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/daelvn/guardia/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    daelvn/guardia
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Manual
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Manual
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Core
+      </label>
+    
+    <a href="./" title="Core" class="md-nav__link md-nav__link--active">
+      Core
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chains" class="md-nav__link">
+    Chains
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boolean-chains" class="md-nav__link">
+    Boolean chains
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complex-chains" class="md-nav__link">
+    Complex chains
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-a-simple-chain" class="md-nav__link">
+    Building a simple chain
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-spicy" class="md-nav__link">
+    Getting spicy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-useful" class="md-nav__link">
+    Getting useful
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-nasty" class="md-nav__link">
+    Getting nasty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-burrito" class="md-nav__link">
+    Getting a burrito
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-logical" class="md-nav__link">
+    Getting logical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-safe" class="md-nav__link">
+    Getting safe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-double" class="md-nav__link">
+    Getting double
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrapping-up" class="md-nav__link">
+    Wrapping up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+        <li class="md-nav__item">
+          <a href="#__source" class="md-nav__link md-nav__link--active">
+            Source
+          </a>
+        </li>
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guards/" title="Guards" class="md-nav__link">
+      Guards
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../module/guardia.init/" title="guardia.init" class="md-nav__link">
+      guardia.init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../module/guardia.guards/" title="guardia.guards" class="md-nav__link">
+      guardia.guards
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/core/" title="core.moon" class="md-nav__link">
+      core.moon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/simple-type-checking/" title="simple-type-checking.moon" class="md-nav__link">
+      simple-type-checking.moon
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chains" class="md-nav__link">
+    Chains
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boolean-chains" class="md-nav__link">
+    Boolean chains
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complex-chains" class="md-nav__link">
+    Complex chains
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-a-simple-chain" class="md-nav__link">
+    Building a simple chain
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-spicy" class="md-nav__link">
+    Getting spicy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-useful" class="md-nav__link">
+    Getting useful
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-nasty" class="md-nav__link">
+    Getting nasty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-burrito" class="md-nav__link">
+    Getting a burrito
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-logical" class="md-nav__link">
+    Getting logical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-safe" class="md-nav__link">
+    Getting safe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-double" class="md-nav__link">
+    Getting double
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrapping-up" class="md-nav__link">
+    Wrapping up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+        <li class="md-nav__item">
+          <a href="#__source" class="md-nav__link md-nav__link--active">
+            Source
+          </a>
+        </li>
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/daelvn/guardia/edit/master/docs/manual/core.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="guardia-core-manual">Guàrdia Core Manual<a class="headerlink" href="#guardia-core-manual" title="Permanent link">&para;</a></h1>
+<p>This is something like a tutorial for Guàrdia 3. This should give you a basic understanding of how the library works and
+how to use it properly.</p>
+<h2 id="chains">Chains<a class="headerlink" href="#chains" title="Permanent link">&para;</a></h2>
+<p>Guàrdia works in chains, that take in any amount of arguments, transform or filter them in some way, and then return
+another set of arguments. You can think of it as piping in shells. Each chain starts with a <strong>Source</strong>, continues with a
+<strong>Transformer</strong> and ends with a <strong>Finalizer</strong>. All kinds are interchangeable between them when all sources are applied (you
+can use _filter and _true in the same place).</p>
+<h3 id="boolean-chains">Boolean chains<a class="headerlink" href="#boolean-chains" title="Permanent link">&para;</a></h3>
+<p>The chains that functions in <code class="codehilite"><span class="n">guardia</span><span class="p">.</span><span class="n">init</span></code> deal with always starts and end with a given set of arguments, but in
+the middle of the chain, the first element passed/returned is a boolean, dubbed <strong>state</strong>. Therefore, you could make a
+text diagram of a chain as <code class="codehilite"><span class="p">...</span> <span class="err">→</span> <span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span> <span class="err">→</span> <span class="p">...</span></code>.</p>
+<h3 id="complex-chains">Complex chains<a class="headerlink" href="#complex-chains" title="Permanent link">&para;</a></h3>
+<p>Complex chains (specified in modules such as <code class="codehilite"><span class="n">guardia</span><span class="p">.</span><span class="n">trace</span></code>) will still start and end with a given set of arguments,
+but the elements passed and returned may not necessarily be <code class="codehilite"><span class="nb">boolean</span><span class="p">,</span> <span class="p">...</span></code>, unlike boolean chains. They may be
+<code class="codehilite"><span class="nb">boolean</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="p">...</span></code> or even <code class="codehilite"><span class="k">function</span><span class="p">,</span> <span class="p">...</span></code>, depending on the module. These are less common and are usually
+specialized. Chain <strong>lifters</strong> exist, that are able to convert a common chain into a complex chain (and sometimes the
+other way).</p>
+<h3 id="building-a-simple-chain">Building a simple chain<a class="headerlink" href="#building-a-simple-chain" title="Permanent link">&para;</a></h3>
+<h4 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h4>
+<p>To begin with, we're going to build a simple boolean chain. Open up your favourite REPL and import <code class="codehilite"><span class="n">guardia</span></code>.</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;</span><span class="s">guardia</span><span class="s2">&quot;</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;guardia&quot;</span><span class="p">)</span>
+</pre></div></div>
+</div>
+<p>The simplest chain we can come up with, but also the most useless, would be one that just starts and ends.</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_finalize</span> <span class="n">g</span><span class="o">.</span><span class="n">_true</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+<span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_finalize</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">_true</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+</pre></div></div>
+</div>
+<p><code class="codehilite"><span class="n">_true</span></code> just starts a boolean chain where the state is <code class="codehilite"><span class="k">true</span></code>, and passes the same arguments we passed, <code class="codehilite"><span class="mi">5</span></code> and <code class="codehilite"><span class="mi">6</span></code>.
+Then <code class="codehilite"><span class="n">_finalize</span></code> gets rid of the state, just to return the arguments. Right now, the state is irrelevant, which means
+we could also write our example as <code class="codehilite"><span class="n">g</span><span class="o">.</span><span class="n">_finalize</span> <span class="n">g</span><span class="o">.</span><span class="n">_false</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span></code> and it would return the same.</p>
+<p>Chains can get long, so Guàrdia provides aliases for each function, which would let us rewrite it as
+<code class="codehilite"><span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="n">g</span><span class="o">.</span><span class="n">_t</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span></code> or <code class="codehilite"><span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="n">g</span><span class="o">.</span><span class="n">_f</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Usually, we would only import the functions we need and get rid of <code class="codehilite"><span class="k">g</span></code>, but since we are on the REPL, we'll leave it.</p>
+</div>
+<p>If we wanted to look at what's going in between <code class="codehilite"><span class="n">_finalize</span></code> and <code class="codehilite"><span class="n">_true</span></code>, we would see <code class="codehilite"><span class="k">true</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span></code>, and we actually can do
+that, using <code class="codehilite"><span class="n">_inspect</span></code>, which aliases to <code class="codehilite"><span class="n">_in</span></code>. It just prints whatever it gets passed, and also returns it. Think of it
+as <code class="codehilite"><span class="n">tee</span></code> for Guàrdia.</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="n">g</span><span class="o">.</span><span class="n">_in</span> <span class="n">g</span><span class="o">.</span><span class="n">_t</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+<span class="mi">1</span>    <span class="kc">true</span>    <span class="mi">5</span>    <span class="mi">6</span>
+<span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_fn</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">_in</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">_t</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))))</span>
+<span class="mi">1</span>    <span class="kc">true</span>    <span class="mi">5</span>    <span class="mi">6</span>
+<span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+</pre></div></div>
+</div>
+<p>We might see a number we don't recognize, <code class="codehilite"><span class="mi">1</span></code>, that is. Guàrdia keeps track of the times that the function has been
+called, so you can keep track of the order of inspections more easily. If you wanted you get fancy, you can replace the
+count with your own string, by using the <code class="codehilite"><span class="n">_named</span></code> (<code class="codehilite"><span class="n">_ci</span></code>, for <strong>c</strong>omplex <strong>i</strong>nspect) function. It first takes a string,
+and returns a function that acts exactly like <code class="codehilite"><span class="n">_inspect</span></code>, but always prints the string instead.</p>
+<div class="superfences-tabs">
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_ci</span> <span class="s2">&quot;</span><span class="s">hewwo</span><span class="s2">&quot;</span><span class="kt">)</span> <span class="n">g</span><span class="o">.</span><span class="n">_t</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">hewwo</span>    <span class="kc">true</span>    <span class="mi">5</span>    <span class="mi">6</span>
+<span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+</pre></div></div>
+<input name="__tabs_4" type="radio" id="__tab_4_1" />
+<label for="__tab_4_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_fn</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">_ci</span><span class="p">(</span><span class="s2">&quot;hewwo&quot;</span><span class="p">)(</span><span class="n">g</span><span class="p">.</span><span class="n">_t</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+<span class="n">hewwo</span>    <span class="kc">true</span>    <span class="mi">5</span>    <span class="mi">6</span>
+<span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+</pre></div></div>
+</div>
+<h4 id="getting-spicy">Getting spicy<a class="headerlink" href="#getting-spicy" title="Permanent link">&para;</a></h4>
+<p>But obviously, we will want to do something with our chain, so let's start with using it for simple checks with the
+<code class="codehilite"><span class="n">_filter</span></code> (<code class="codehilite"><span class="n">_fl</span></code>) function. It takes a function, and then returns a source that will run the function with the arguments
+passed to it. This is better explained by looking at the actual source.</p>
+<div class="superfences-tabs">
+<input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
+<label for="__tab_5_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">_filter</span> <span class="o">=</span> <span class="kt">(</span><span class="n">fl</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="kt">(</span><span class="o">...</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="k">if</span> <span class="n">fl</span> <span class="o">...</span> <span class="k">then</span> <span class="kc">true</span><span class="p">,</span> <span class="o">...</span> <span class="k">else</span> <span class="kc">false</span><span class="p">,</span> <span class="o">...</span>
+</pre></div></div>
+<input name="__tabs_5" type="radio" id="__tab_5_1" />
+<label for="__tab_5_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">_filter</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">fl</span><span class="p">)</span> <span class="kr">return</span> <span class="kr">function</span> <span class="p">(...)</span>
+  <span class="kr">if</span> <span class="n">fl</span><span class="p">(...)</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kc">true</span><span class="p">,</span> <span class="p">...</span> <span class="kr">else</span> <span class="kr">return</span> <span class="kc">false</span><span class="p">,</span> <span class="p">...</span> <span class="kr">end</span>
+<span class="kr">end</span> <span class="kr">end</span>
+</pre></div></div>
+</div>
+<p>If <code class="codehilite"><span class="n">fl</span><span class="p">(...)</span></code> is truthy, then the chain will start with <code class="codehilite"><span class="k">true</span><span class="p">,</span> <span class="p">...</span></code>, otherwise with <code class="codehilite"><span class="k">false</span><span class="p">,</span> <span class="p">...</span></code>. We can use it with
+functions such as:</p>
+<div class="superfences-tabs">
+<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
+<label for="__tab_6_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">is5</span> <span class="o">=</span> <span class="kt">(</span><span class="n">x</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span>
+</pre></div></div>
+<input name="__tabs_6" type="radio" id="__tab_6_1" />
+<label for="__tab_6_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">is5</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span> <span class="kr">end</span>
+</pre></div></div>
+</div>
+<p>And then use it with filter this way:</p>
+<div class="superfences-tabs">
+<input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
+<label for="__tab_7_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="kt">)</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+<span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+</pre></div></div>
+<input name="__tabs_7" type="radio" id="__tab_7_1" />
+<label for="__tab_7_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_fn</span><span class="p">((</span><span class="n">g</span><span class="p">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="p">)(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+</pre></div></div>
+</div>
+<p>If we were to inspect what was going on in the middle, we would see that the function returns <code class="codehilite"><span class="k">true</span></code>. But why is it not
+checking the 6? Well, we only setup our function to take a single argument, so we could modify it to work for any
+number of arguments:</p>
+<div class="superfences-tabs">
+<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
+<label for="__tab_8_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">is5</span> <span class="o">=</span> <span class="kt">(</span><span class="o">...</span><span class="kt">)</span> <span class="nf">-&gt;</span>
+  <span class="n">args</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="kt">{</span><span class="o">...</span><span class="kt">}</span><span class="p">,</span> <span class="kc">true</span>
+  <span class="k">for</span> <span class="n">arg</span> <span class="k">in</span> <span class="o">*</span><span class="n">args</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="kc">false</span> <span class="k">if</span> <span class="n">arg</span> <span class="o">!=</span> <span class="mi">5</span>
+  <span class="k">return</span> <span class="n">status</span>
+</pre></div></div>
+<input name="__tabs_8" type="radio" id="__tab_8_1" />
+<label for="__tab_8_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">is5</span> <span class="p">(...)</span>
+  <span class="kd">local</span> <span class="n">args</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="p">{...},</span> <span class="kc">true</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="kr">if</span> <span class="n">arg</span> <span class="o">~=</span> <span class="mi">5</span> <span class="kr">then</span> <span class="n">status</span> <span class="o">=</span> <span class="kc">false</span> <span class="kr">end</span>
+  <span class="kr">end</span>
+  <span class="kr">return</span> <span class="n">status</span>
+<span class="kr">end</span>
+</pre></div></div>
+</div>
+<p>And that would still work. But, what is the point if we are still getting 5 and 6? Well, there is a finalizer named
+<code class="codehilite"><span class="n">_status</span></code> (<code class="codehilite"><span class="n">_st</span></code>) that returns the status of the boolean chain, dropping the values.</p>
+<div class="superfences-tabs">
+<input name="__tabs_9" type="radio" id="__tab_9_0" checked="checked" />
+<label for="__tab_9_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_st</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="kt">)</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="kc">true</span>
+<span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_st</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="kt">)</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+<span class="kc">false</span>
+</pre></div></div>
+<input name="__tabs_9" type="radio" id="__tab_9_1" />
+<label for="__tab_9_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_st</span><span class="p">((</span><span class="n">g</span><span class="p">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="p">)(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="kc">true</span>
+<span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_st</span><span class="p">((</span><span class="n">g</span><span class="p">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="p">)(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="kc">false</span>
+</pre></div></div>
+</div>
+<p>If you need to negate the result of a source, or just negate the status anywhere in a chain, you would use <code class="codehilite"><span class="n">_negate</span></code>
+(alias <code class="codehilite"><span class="n">_ng</span></code>).</p>
+<div class="superfences-tabs">
+<input name="__tabs_10" type="radio" id="__tab_10_0" checked="checked" />
+<label for="__tab_10_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_st</span> <span class="n">g</span><span class="o">.</span><span class="n">_ng</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="kt">)</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="kc">false</span>
+</pre></div></div>
+<input name="__tabs_10" type="radio" id="__tab_10_1" />
+<label for="__tab_10_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_st</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">_ng</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">_fl</span><span class="p">(</span><span class="n">is5</span><span class="p">)(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>
+<span class="kc">false</span>
+</pre></div></div>
+</div>
+<h4 id="getting-useful">Getting useful<a class="headerlink" href="#getting-useful" title="Permanent link">&para;</a></h4>
+<p>But wait, isn't this essentially the same than running <code class="codehilite"><span class="n">is5</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span></code>? Well yes, it is, but <code class="codehilite"><span class="n">is5</span></code> does not compose, and
+we are not really doing anything with the information. We have to do something with it, this is when the concept
+of <strong>Transformers</strong> comes in.</p>
+<p>It's nothing new, you've actually already seen it: <code class="codehilite"><span class="n">_negate</span></code>, <code class="codehilite"><span class="n">_inspect</span></code> and <code class="codehilite"><span class="n">_named</span></code> all fit into the concept of
+transformers. They're just functions that get a chain and return another chain. The most important one would possibly be
+<code class="codehilite"><span class="n">_transform</span></code> (<code class="codehilite"><span class="n">_tr</span></code>), which takes a function, and then, depending on the status of the function, runs the transformer
+or not. This is its source:</p>
+<div class="superfences-tabs">
+<input name="__tabs_11" type="radio" id="__tab_11_0" checked="checked" />
+<label for="__tab_11_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">_transform</span> <span class="o">=</span> <span class="kt">(</span><span class="n">tr</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="kt">(</span><span class="n">b</span><span class="p">,</span> <span class="o">...</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="k">if</span> <span class="n">b</span> <span class="k">then</span> <span class="kc">true</span><span class="p">,</span> <span class="n">tr</span> <span class="o">...</span> <span class="k">else</span> <span class="kc">false</span><span class="p">,</span> <span class="o">...</span>
+</pre></div></div>
+<input name="__tabs_11" type="radio" id="__tab_11_1" />
+<label for="__tab_11_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">_transform</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="kr">function</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">...)</span>
+    <span class="kr">if</span> <span class="n">b</span> <span class="kr">then</span>
+      <span class="kr">return</span> <span class="kc">true</span><span class="p">,</span> <span class="n">tr</span><span class="p">(...)</span>
+    <span class="kr">else</span>
+      <span class="kr">return</span> <span class="kc">false</span><span class="p">,</span> <span class="p">...</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div></div>
+</div>
+<p>So let's make a function that, say, changes all arguments to 3s.</p>
+<div class="superfences-tabs">
+<input name="__tabs_12" type="radio" id="__tab_12_0" checked="checked" />
+<label for="__tab_12_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">to3</span> <span class="o">=</span> <span class="kt">(</span><span class="o">...</span><span class="kt">)</span> <span class="nf">-&gt;</span>
+  <span class="n">args</span> <span class="o">=</span> <span class="kt">{</span><span class="o">...</span><span class="kt">}</span>
+  <span class="k">return</span> <span class="nb">table.unpack</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">args</span> <span class="k">do</span> <span class="mi">3</span>
+  <span class="c1">-- for those unfamiliar with MoonScript syntax, this essentially creates a table of length #args that only</span>
+  <span class="c1">-- contains 3s, and then unpacks it and returns all the 3s individually.</span>
+</pre></div></div>
+<input name="__tabs_12" type="radio" id="__tab_12_1" />
+<label for="__tab_12_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">to3</span> <span class="p">(...)</span>
+  <span class="kd">local</span> <span class="n">args</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{...},</span> <span class="p">{}</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">args</span> <span class="kr">do</span> <span class="nb">table.insert</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="kr">end</span>
+  <span class="kr">return</span> <span class="nb">table.unpack</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div></div>
+</div>
+<p>However, if we were to include this in our chain, it would change all of them indiscriminately:</p>
+<div class="superfences-tabs">
+<input name="__tabs_13" type="radio" id="__tab_13_0" checked="checked" />
+<label for="__tab_13_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_tr</span> <span class="n">to3</span><span class="kt">)</span> <span class="n">g</span><span class="o">.</span><span class="n">_t</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">a</span><span class="s2">&quot;</span>
+<span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
+</pre></div></div>
+<input name="__tabs_13" type="radio" id="__tab_13_1" />
+<label for="__tab_13_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_fn</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">_tr</span><span class="p">(</span><span class="n">to3</span><span class="p">)(</span><span class="n">g</span><span class="p">.</span><span class="n">_t</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)))</span>
+<span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
+</pre></div></div>
+</div>
+<p>We probably would want to change all of them <em>only</em> when they meet a certain condition. We can do that with filters! Let's
+use our <code class="codehilite"><span class="n">is5</span></code> filter. We know that <code class="codehilite"><span class="n">_transform</span></code> only runs the function when the boolean chain status is true, and
+<code class="codehilite"><span class="n">_filter</span></code> precisely sets the status for a chain, so let's combine those together:</p>
+<div class="superfences-tabs">
+<input name="__tabs_14" type="radio" id="__tab_14_0" checked="checked" />
+<label for="__tab_14_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_tr</span> <span class="n">to3</span><span class="kt">)</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="kt">)</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">a</span><span class="s2">&quot;</span>
+<span class="mi">5</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">a</span><span class="s2">&quot;</span>
+<span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_tr</span> <span class="n">to3</span><span class="kt">)</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="kt">)</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
+</pre></div></div>
+<input name="__tabs_14" type="radio" id="__tab_14_1" />
+<label for="__tab_14_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_fn</span><span class="p">((</span><span class="n">g</span><span class="p">.</span><span class="n">_tr</span><span class="p">(</span><span class="n">to3</span><span class="p">))((</span><span class="n">g</span><span class="p">.</span><span class="n">_fl</span><span class="p">(</span><span class="n">is5</span><span class="p">))(</span><span class="mi">5</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)))</span>
+<span class="mi">5</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span>
+<span class="o">&gt;</span> <span class="n">g</span><span class="p">.</span><span class="n">_fn</span><span class="p">((</span><span class="n">g</span><span class="p">.</span><span class="n">_tr</span><span class="p">(</span><span class="n">to3</span><span class="p">))((</span><span class="n">g</span><span class="p">.</span><span class="n">_fl</span><span class="p">(</span><span class="n">is5</span><span class="p">))(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
+</pre></div></div>
+</div>
+<p>It works! This is essentially all you need to build type checkers, so very simple functions can build something bigger.</p>
+<h4 id="getting-nasty">Getting nasty<a class="headerlink" href="#getting-nasty" title="Permanent link">&para;</a></h4>
+<p>Let's say we actually want to build a type checker. Just check that our function is getting a certain argument of a
+certain type, decorator-style. First, we would build a filter to check we're getting the type we want. Let's check for
+numbers.</p>
+<div class="superfences-tabs">
+<input name="__tabs_15" type="radio" id="__tab_15_0" checked="checked" />
+<label for="__tab_15_0">MoonScript</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">_number</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="kt">(</span><span class="n">x</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="kt">(</span><span class="nb">type</span> <span class="n">x</span><span class="kt">)</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">number</span><span class="s2">&quot;</span> <span class="c1">-- Mind the use of _fl!</span>
+</pre></div></div>
+<input name="__tabs_15" type="radio" id="__tab_15_1" />
+<label for="__tab_15_1">Lua</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">_number</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">_fl</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;number&quot;</span> <span class="kr">end</span><span class="p">)</span> <span class="c1">-- Mind the use of _fl!</span>
+</pre></div></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="codehilite"><span class="n">_number</span></code> is a <code class="codehilite"><span class="n">guardia</span><span class="p">.</span><span class="n">guards</span></code> builtin, and it also automatically checks for a <code class="codehilite"><span class="n">__type</span></code> metafield in tables, so
+you should probably use that instead of building them yourself. They're also automatically generated, which means that
+importing <code class="codehilite"><span class="n">_Nice</span></code> from the <code class="codehilite"><span class="n">guards</span></code> module will create a type checker that checks for the type <code class="codehilite"><span class="n">Nice</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="codehilite"><span class="n">_number</span></code> function we built is only asking for one argument! Keep this in mind when reading and trying
+examples, and feel free to <code class="codehilite"><span class="kn">import</span> <span class="nn">_number</span> <span class="nn">from</span> <span class="nn">require</span> <span class="s2">&quot;guardia.guards&quot;</span></code> if you need to use more arguments.</p>
+</div>
+<p>Now, that's very fine and all, but what do we do if we're <em>not</em> getting a number? We can use <code class="codehilite"><span class="n">_error</span></code> (<code class="codehilite"><span class="n">_er</span></code>), that
+will let us raise an error when something that we don't want to happen, happens. Let's define one:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">_e_notnumber</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">_er</span> <span class="s2">&quot;</span><span class="s">That&#39;s not a number!</span><span class="s2">&quot;</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is a general convention to define errors as <code class="codehilite"><span class="n">_e_NAME</span></code>, so when people see them in chains, they know that is an
+error.</p>
+</div>
+<p>If we didn't want to write our own error message, you can always use the <code class="codehilite"><span class="n">_e1</span></code> builtin, which is essentially <code class="codehilite"><span class="n">_er</span></code> but
+it errors with <code class="codehilite"><span class="ss">&quot;guardia $ chain was stopped&quot;</span></code>, in case you want to do quick debugging.</p>
+<p>The error will be raised if the status on the chain is true. Sounds about right, except our filter will return <code class="codehilite"><span class="k">true</span></code> <em>on</em>
+numbers! We don't want to error when we get a number! We will simply use <code class="codehilite"><span class="n">_negate</span></code>. We build our chain like this:
+<div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="k">g</span><span class="p">.</span><span class="n">_fn</span> <span class="n">_e_notnumber</span> <span class="k">g</span><span class="p">.</span><span class="n">_ng</span> <span class="n">_number</span> <span class="mi">5</span>
+<span class="mi">5</span>
+</pre></div></p>
+<p>In the case that we don't pass numbers, it will error. We will expand on how to catch those later.</p>
+<h4 id="getting-a-burrito">Getting a burrito<a class="headerlink" href="#getting-a-burrito" title="Permanent link">&para;</a></h4>
+<p>Yeah yeah the last thing was very fun, but how do I use it with my function? Your first thought might be to just
+precede the arguments with it:
+<div class="codehilite"><pre><span></span><span class="n">myFunction</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="n">_e_notnumber</span> <span class="n">g</span><span class="o">.</span><span class="n">_ng</span> <span class="n">_number</span> <span class="mi">5</span>
+</pre></div></p>
+<p>But not everyone is going to want to write all that when calling your functions, they expect your function to be
+already checking for types. This is where we come up with a really simply solution, which is wrapping.
+<div class="codehilite"><pre><span></span><span class="n">_myFunction</span> <span class="o">=</span> <span class="nf">=&gt;</span> <span class="kt">(</span><span class="o">...</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="vc">@</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="n">_e_notnumber</span> <span class="n">g</span><span class="o">.</span><span class="n">_ng</span> <span class="n">_number</span> <span class="o">...</span>
+<span class="c1">-- this could also be written as</span>
+<span class="n">_myFunction</span> <span class="o">=</span> <span class="kt">(</span><span class="n">f</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="kt">(</span><span class="o">...</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="n">f</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="n">_e_notnumber</span> <span class="n">g</span><span class="o">.</span><span class="n">_ng</span> <span class="n">_number</span> <span class="o">...</span>
+</pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also kind of a convention to define your wrappers as <code class="codehilite"><span class="n">_functionName</span></code>, and they should be defined right above
+your function definition, kind of like a type signature. <em>Kind of</em>.</p>
+</div>
+<p>Now, every function we pass to <code class="codehilite"><span class="n">_myFunction</span></code> will get its first argument typechecked, and will error if it is not
+an argument, we may now define our function as:
+<div class="codehilite"><pre><span></span><span class="n">myFunction</span> <span class="o">=</span> <span class="n">_myFunction</span> <span class="kt">(</span><span class="n">x</span><span class="kt">)</span> <span class="nf">-&gt;</span> <span class="n">x</span>
+</pre></div></p>
+<h4 id="getting-logical">Getting logical<a class="headerlink" href="#getting-logical" title="Permanent link">&para;</a></h4>
+<p>Now, what do we do if we want to check for several conditions as a source? Guàrdia provides the builtins <code class="codehilite"><span class="n">_or</span></code>, <code class="codehilite"><span class="n">_and</span></code>
+and <code class="codehilite"><span class="n">_xor</span></code> (and their uncurried counterparts, <code class="codehilite"><span class="n">_or1</span></code>, <code class="codehilite"><span class="n">_and1</span></code> and <code class="codehilite"><span class="n">_xor1</span></code>) that ask for two filters, and return the
+unified filter. Say we had a filter equivalent to <code class="codehilite"><span class="n">is5</span></code>, but for 4s (<code class="codehilite"><span class="n">is4</span></code>), we could logically OR them this way:
+<div class="codehilite"><pre><span></span><span class="n">_is4or5</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">_or1</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">is4</span><span class="kt">)</span><span class="p">,</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">is5</span><span class="kt">)</span>
+</pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most of the time we are inlining chains, so for clarity, you might want to use the uncurried version of the logical
+operators instead of the curried ones.</p>
+</div>
+<h4 id="getting-safe">Getting safe<a class="headerlink" href="#getting-safe" title="Permanent link">&para;</a></h4>
+<p>We usually want to check for <code class="codehilite"><span class="n">nil</span></code> in our arguments, and replace it with something else otherwise: a <em>default</em> value.
+Guàrdia provides a builtin for this named <code class="codehilite"><span class="n">_default</span></code> (<code class="codehilite"><span class="n">_df</span></code>), which only works for the first argument but is good enough
+for curried functions. It is basically a wrapper for <code class="codehilite"><span class="n">_transform</span></code> and <code class="codehilite"><span class="n">_filter</span></code> with a <code class="codehilite"><span class="n">nil</span></code> type checker embedded, and
+is indeed a source:
+<div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_df</span> <span class="mi">5</span><span class="kt">)</span> <span class="kc">nil</span>
+<span class="mi">5</span>
+</pre></div></p>
+<h4 id="getting-double">Getting double<a class="headerlink" href="#getting-double" title="Permanent link">&para;</a></h4>
+<p>Now, we have only done chains with a single transformation and a single filter, but what if we need more? It is as simple
+to use <code class="codehilite"><span class="n">_pass</span></code> (alias <code class="codehilite"><span class="n">_ps</span></code>), which discards the status mid-chain and lets you use a filter right after it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="codehilite"><span class="n">_pass</span></code> is equivalent to <code class="codehilite"><span class="n">_finalize</span></code>, in fact, <code class="codehilite"><span class="n">_finalize</span></code> and <code class="codehilite"><span class="n">_fn</span></code> are just aliases for <code class="codehilite"><span class="n">_pass</span></code>, but they're that
+way so that it is clearer in a chain, but feel free to use only <code class="codehilite"><span class="n">_pass</span></code> or only <code class="codehilite"><span class="n">_finalize</span></code>, they're the same
+function, they're interchangeable.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">_fn</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_tr</span> <span class="n">to3</span><span class="kt">)</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">arg1is5</span><span class="kt">)</span> <span class="n">g</span><span class="o">.</span><span class="n">_ps</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_tr</span> <span class="n">to4</span><span class="kt">)</span> <span class="kt">(</span><span class="n">g</span><span class="o">.</span><span class="n">_fl</span> <span class="n">arg1is6</span><span class="kt">)</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span>
+<span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
+</pre></div>
+
+<p>(Yes, I know we didn't define many of these functions, but I hope you understand what they do by their name)</p>
+<h4 id="wrapping-up">Wrapping up<a class="headerlink" href="#wrapping-up" title="Permanent link">&para;</a></h4>
+<p>That is essentially everything in the core library, which doesn't cover the <code class="codehilite"><span class="n">guards</span></code> library nor others. But it will do
+for most cases.</p>
+                
+                  
+                    <h2 id="__source">Source</h2>
+                    
+                    
+                      
+                    
+                    
+                    
+                    <a href="https://github.com/daelvn/guardia/examples/core-manual.moon" title="core-manual.moon" class="md-source-file">
+                      core-manual.moon
+                    </a>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../changelog/" title="Changelog" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Changelog
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../guards/" title="Guards" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Guards
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/daelvn" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://queer.party/@daelvn" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
