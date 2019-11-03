@@ -1,5 +1,5 @@
 package = "guardia"
-version = "3.0.2-1"
+version = "3.0.3-1"
 description = {
   summary = "Guards for Lua and MoonScript",
   detailed = [[Guàrdia is a function that looks to obsolete the LuaRocks guard package. It includes some more types of guards, as well as some default ones.]],
@@ -7,7 +7,7 @@ description = {
 }
 source = {
   url = "git://github.com/daelvn/guardia.git",
-  tag = "v3.0.2",
+  tag = "v3.0.3",
 }
 build = {
   type = "builtin",
